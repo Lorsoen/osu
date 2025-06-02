@@ -32,7 +32,7 @@ namespace osu.Game.Screens.SelectV2
                                                                           .Prepend((0.0f, OsuColour.STAR_DIFFICULTY_SPECTRUM.ElementAt(1).Item2)).ToArray();
 
             public DifficultyRangeSlider()
-                : base("Star Rating")
+                : base(FilterControlStrings.StarRating)
             {
                 NubWidth = ShearedNub.HEIGHT * 1.16f;
                 TooltipSuffix = "stars";

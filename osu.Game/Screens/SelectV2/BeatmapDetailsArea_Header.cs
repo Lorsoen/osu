@@ -10,6 +10,7 @@ using osu.Framework.Localisation;
 using osu.Game.Configuration;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Graphics.UserInterfaceV2;
+using osu.Game.Localisation;
 using osu.Game.Screens.Select;
 using osu.Game.Screens.Select.Leaderboards;
 using osuTK;
@@ -71,7 +72,7 @@ namespace osu.Game.Screens.SelectV2
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            Text = @"Selected Mods",
+                                            Text = BeatmapDetailsAreaStrings.SelectedMods,
                                             Height = 30,
                                         },
                                     },
@@ -209,7 +210,7 @@ namespace osu.Game.Screens.SelectV2
             private partial class ScopeDropdown : ShearedDropdown<BeatmapLeaderboardScope>
             {
                 public ScopeDropdown()
-                    : base("Scope")
+                    : base(BeatmapDetailsAreaStrings.Scope)
                 {
                     Items = Enum.GetValues<BeatmapLeaderboardScope>();
                 }

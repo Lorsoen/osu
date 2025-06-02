@@ -9,6 +9,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics.Containers;
+using osu.Game.Localisation;
 using osu.Game.Online;
 using osu.Game.Online.API;
 using osu.Game.Online.API.Requests;
@@ -124,8 +125,8 @@ namespace osu.Game.Screens.SelectV2
                                                             Spacing = new Vector2(0f, 10f),
                                                             Children = new[]
                                                             {
-                                                                creator = new MetadataDisplay("Creator"),
-                                                                genre = new MetadataDisplay("Genre"),
+                                                                creator = new MetadataDisplay(BeatmapMetadataWedgeStrings.Creator),
+                                                                genre = new MetadataDisplay(BeatmapMetadataWedgeStrings.Genre),
                                                             },
                                                         },
                                                         new FillFlowContainer
@@ -136,8 +137,8 @@ namespace osu.Game.Screens.SelectV2
                                                             Spacing = new Vector2(0f, 10f),
                                                             Children = new[]
                                                             {
-                                                                source = new MetadataDisplay("Source"),
-                                                                language = new MetadataDisplay("Language"),
+                                                                source = new MetadataDisplay(BeatmapMetadataWedgeStrings.Source),
+                                                                language = new MetadataDisplay(BeatmapMetadataWedgeStrings.Language),
                                                             },
                                                         },
                                                         new FillFlowContainer
@@ -148,18 +149,18 @@ namespace osu.Game.Screens.SelectV2
                                                             Spacing = new Vector2(0f, 10f),
                                                             Children = new[]
                                                             {
-                                                                submitted = new MetadataDisplay("Submitted"),
-                                                                ranked = new MetadataDisplay("Ranked"),
+                                                                submitted = new MetadataDisplay(BeatmapMetadataWedgeStrings.Submitted),
+                                                                ranked = new MetadataDisplay(BeatmapMetadataWedgeStrings.Ranked),
                                                             },
                                                         },
                                                     },
                                                 },
                                             },
-                                            userTags = new MetadataDisplay("User Tags")
+                                            userTags = new MetadataDisplay(BeatmapMetadataWedgeStrings.UserTags)
                                             {
                                                 Alpha = 0,
                                             },
-                                            mapperTags = new MetadataDisplay("Mapper Tags"),
+                                            mapperTags = new MetadataDisplay(BeatmapMetadataWedgeStrings.MapperTags),
                                         },
                                     },
                                 },

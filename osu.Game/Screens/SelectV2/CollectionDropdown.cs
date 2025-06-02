@@ -18,6 +18,7 @@ using osu.Game.Database;
 using osu.Game.Graphics.Containers;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Graphics.UserInterfaceV2;
+using osu.Game.Localisation;
 using osuTK;
 using Realms;
 
@@ -48,7 +49,7 @@ namespace osu.Game.Screens.SelectV2
         private readonly CollectionFilterMenuItem allBeatmapsItem = new AllBeatmapsCollectionFilterMenuItem();
 
         public CollectionDropdown()
-            : base("Collection")
+            : base(CollectionDropdownStrings.Collection)
         {
             ItemSource = filters;
 
