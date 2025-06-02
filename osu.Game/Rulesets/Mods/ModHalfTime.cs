@@ -9,6 +9,7 @@ using osu.Framework.Localisation;
 using osu.Game.Configuration;
 using osu.Game.Graphics;
 using osu.Game.Overlays.Settings;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -18,10 +19,10 @@ namespace osu.Game.Rulesets.Mods
         public override string Acronym => "HT";
         public override IconUsage? Icon => OsuIcon.ModHalftime;
         public override ModType Type => ModType.DifficultyReduction;
-        public override LocalisableString Description => "Less zoom...";
+        public override LocalisableString Description => ModHalfTimeStrings.HalfTimeDescription;
         public override bool Ranked => SpeedChange.IsDefault;
 
-        [SettingSource("Speed decrease", "The actual decrease to apply", SettingControlType = typeof(MultiplierSettingsSlider))]
+        [SettingSource(typeof(ModHalfTimeStrings), nameof(ModHalfTimeStrings.SpeedDecrease), nameof(ModHalfTimeStrings.SpeedDecreaseDescription), SettingControlType = typeof(MultiplierSettingsSlider))]
         public override BindableNumber<double> SpeedChange { get; } = new BindableDouble(0.75)
         {
             MinValue = 0.5,
@@ -29,7 +30,7 @@ namespace osu.Game.Rulesets.Mods
             Precision = 0.01,
         };
 
-        [SettingSource("Adjust pitch", "Should pitch be adjusted with speed")]
+        [SettingSource(typeof(ModHalfTimeStrings), nameof(ModHalfTimeStrings.AdjustPitch), nameof(ModHalfTimeStrings.AdjustPitchDescription))]
         public virtual BindableBool AdjustPitch { get; } = new BindableBool();
 
         public override IEnumerable<(LocalisableString setting, LocalisableString value)> SettingDescription
@@ -40,7 +41,7 @@ namespace osu.Game.Rulesets.Mods
                     yield return description;
 
                 if (!AdjustPitch.IsDefault)
-                    yield return ("Adjust pitch", AdjustPitch.Value ? "On" : "Off");
+                    yield return (ModHalfTimeStrings.AdjustPitch, AdjustPitch.Value ? "On" : "Off");
             }
         }
 

@@ -41,6 +41,31 @@ namespace osu.Game.Localisation
         public static LocalisableString AddPreset => new TranslatableString(getKey(@"add_preset"), @"Add preset");
 
         /// <summary>
+        /// "Difficulty Reduction"
+        /// </summary>
+        public static LocalisableString DifficultyReduction => new TranslatableString(getKey(@"difficulty_reduction"), @"Difficulty Reduction");
+
+        /// <summary>
+        /// "Difficulty Increase"
+        /// </summary>
+        public static LocalisableString DifficultyIncrease => new TranslatableString(getKey(@"difficulty_increase"), @"Difficulty Increase");
+
+        /// <summary>
+        /// "Automation"
+        /// </summary>
+        public static LocalisableString Automation => new TranslatableString(getKey(@"automation"), @"Automation");
+
+        /// <summary>
+        /// "Conversion"
+        /// </summary>
+        public static LocalisableString Conversion => new TranslatableString(getKey(@"conversion"), @"Conversion");
+
+        /// <summary>
+        /// "Fun"
+        /// </summary>
+        public static LocalisableString Fun => new TranslatableString(getKey(@"fun"), @"Fun");
+
+        /// <summary>
         /// "Use current mods"
         /// </summary>
         public static LocalisableString UseCurrentMods => new TranslatableString(getKey(@"use_current_mods"), @"Use current mods");
