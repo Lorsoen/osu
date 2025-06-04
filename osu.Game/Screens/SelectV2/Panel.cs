@@ -68,10 +68,22 @@ namespace osu.Game.Screens.SelectV2
             }
         }
 
-        // content is offset by PanelXOffset, make sure we only handle input at the actual visible
-        // offset region.
-        public override bool ReceivePositionalInputAt(Vector2 screenSpacePos) =>
-            TopLevelContent.ReceivePositionalInputAt(screenSpacePos);
+        public sealed override bool ReceivePositionalInputAt(Vector2 screenSpacePos)
+        {
+            if (item == null)
+                return TopLevelContent.ReceivePositionalInputAt(screenSpacePos);
+
+            var inputRectangle = TopLevelContent.DrawRectangle;
+
+            // Cover the gaps introduced by the spacing between panels so that user mis-aims don't result in no-ops.
+            inputRectangle = inputRectangle.Inflate(new MarginPadding
+            {
+                Top = item.CarouselInputLenienceAbove,
+                Bottom = item.CarouselInputLenienceBelow,
+            });
+
+            return inputRectangle.Contains(TopLevelContent.ToLocalSpace(screenSpacePos));
+        }
 
         [Resolved]
         private BeatmapCarousel? carousel { get; set; }
@@ -212,7 +224,9 @@ namespace osu.Game.Screens.SelectV2
             base.PrepareForUse();
 
             updateAccentColour();
-            updateXOffset();
+
+            updateXOffset(animated: false);
+            updateSelectedState(animated: false);
 
             this.FadeIn(DURATION, Easing.OutQuint);
         }
@@ -257,13 +271,13 @@ namespace osu.Game.Screens.SelectV2
                 selectionLayer.FadeOut(200, Easing.OutQuint);
         }
 
-        private void updateXOffset()
+        private void updateXOffset(bool animated = true)
         {
             float x = PanelXOffset + corner_radius;
 
             if (!Expanded.Value && !Selected.Value)
             {
-                if (this is PanelBeatmap)
+                if (this is PanelBeatmap || this is PanelBeatmapStandalone)
                     x += active_x_offset * 2;
                 else
                     x += active_x_offset * 4;
@@ -272,7 +286,7 @@ namespace osu.Game.Screens.SelectV2
             if (!KeyboardSelected.Value)
                 x += active_x_offset;
 
-            TopLevelContent.MoveToX(x, DURATION, Easing.OutQuint);
+            TopLevelContent.MoveToX(x, animated ? DURATION : 0, Easing.OutQuint);
         }
 
         protected override bool OnHover(HoverEvent e)
