@@ -14,6 +14,7 @@ using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Scoring;
 using osu.Game.Screens.Play;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -22,7 +23,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override string Name => "Bloom";
         public override string Acronym => "BM";
         public override ModType Type => ModType.Fun;
-        public override LocalisableString Description => "The cursor blooms into.. a larger cursor!";
+        public override LocalisableString Description => OsuModBloomStrings.TheCursorBloomsIntoA;
         public override double ScoreMultiplier => 1;
         protected const float MIN_SIZE = 1;
         protected const float TRANSITION_DURATION = 100;
@@ -33,22 +34,16 @@ namespace osu.Game.Rulesets.Osu.Mods
 
         private float currentSize;
 
-        [SettingSource(
-            "Max size at combo",
-            "The combo count at which the cursor reaches its maximum size",
-            SettingControlType = typeof(SettingsSlider<int, RoundedSliderBar<int>>)
-        )]
+        [SettingSource(typeof(OsuModBloomStrings), nameof(OsuModBloomStrings.MaxSizeAtCombo), nameof(OsuModBloomStrings.TheComboCountAtWhich), SettingControlType = typeof(SettingsSlider<int, RoundedSliderBar<int>>)
+)]
         public BindableInt MaxSizeComboCount { get; } = new BindableInt(50)
         {
             MinValue = 5,
             MaxValue = 100,
         };
 
-        [SettingSource(
-            "Final size multiplier",
-            "The multiplier applied to cursor size when combo reaches maximum",
-            SettingControlType = typeof(SettingsSlider<float, RoundedSliderBar<float>>)
-        )]
+        [SettingSource(typeof(OsuModBloomStrings), nameof(OsuModBloomStrings.FinalSizeMultiplier), nameof(OsuModBloomStrings.TheMultiplierAppliedToCursor), SettingControlType = typeof(SettingsSlider<float, RoundedSliderBar<float>>)
+)]
         public BindableFloat MaxCursorSize { get; } = new BindableFloat(10f)
         {
             MinValue = 5f,

@@ -13,12 +13,13 @@ using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Rulesets.UI;
 using osu.Game.Utils;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
     public class OsuModNoScope : ModNoScope, IUpdatableByPlayfield, IApplicableToBeatmap
     {
-        public override LocalisableString Description => "Where's the cursor?";
+        public override LocalisableString Description => OsuModNoScopeStrings.WheresTheCursor;
 
         public override Type[] IncompatibleMods => new[] { typeof(OsuModBloom) };
 

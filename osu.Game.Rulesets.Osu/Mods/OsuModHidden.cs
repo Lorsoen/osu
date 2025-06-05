@@ -9,6 +9,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Localisation;
 using osu.Game.Configuration;
 using osu.Game.Beatmaps;
+using osu.Game.Localisation;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Objects.Drawables;
@@ -20,10 +21,10 @@ namespace osu.Game.Rulesets.Osu.Mods
 {
     public class OsuModHidden : ModHidden, IHidesApproachCircles
     {
-        [SettingSource("Only fade approach circles", "The main object body will not fade when enabled.")]
+        [SettingSource(typeof(OsuModHiddenStrings), nameof(OsuModHiddenStrings.OnlyFadeApproachCircles), nameof(OsuModHiddenStrings.TheMainObjectBodyWill))]
         public Bindable<bool> OnlyFadeApproachCircles { get; } = new BindableBool();
 
-        public override LocalisableString Description => @"Play with no approach circles and fading circles/sliders.";
+        public override LocalisableString Description => OsuModHiddenStrings.PlayWithNoApproachCircles;
         public override double ScoreMultiplier => UsesDefaultConfiguration ? 1.06 : 1;
 
         public override Type[] IncompatibleMods => new[] { typeof(IRequiresApproachCircles), typeof(OsuModSpinIn), typeof(OsuModDepth) };

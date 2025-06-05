@@ -15,6 +15,7 @@ using osu.Game.Rulesets.Osu.Scoring;
 using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -22,19 +23,19 @@ namespace osu.Game.Rulesets.Osu.Mods
     {
         public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(OsuModStrictTracking)).ToArray();
 
-        [SettingSource("No slider head accuracy requirement", "Scores sliders proportionally to the number of ticks hit.")]
+        [SettingSource(typeof(OsuModClassicStrings), nameof(OsuModClassicStrings.NoSliderHeadAccuracyRequirement), nameof(OsuModClassicStrings.ScoresSlidersProportionallyToThe))]
         public Bindable<bool> NoSliderHeadAccuracy { get; } = new BindableBool(true);
 
-        [SettingSource("Apply classic note lock", "Applies note lock to the full hit window.")]
+        [SettingSource(typeof(OsuModClassicStrings), nameof(OsuModClassicStrings.ApplyClassicNoteLock), nameof(OsuModClassicStrings.AppliesNoteLockToThe))]
         public Bindable<bool> ClassicNoteLock { get; } = new BindableBool(true);
 
-        [SettingSource("Always play a slider's tail sample", "Always plays a slider's tail sample regardless of whether it was hit or not.")]
+        [SettingSource(typeof(OsuModClassicStrings), nameof(OsuModClassicStrings.AlwaysPlayASlidersTail), nameof(OsuModClassicStrings.AlwaysPlaysASlidersTail))]
         public Bindable<bool> AlwaysPlayTailSample { get; } = new BindableBool(true);
 
-        [SettingSource("Fade out hit circles earlier", "Make hit circles fade out into a miss, rather than after it.")]
+        [SettingSource(typeof(OsuModClassicStrings), nameof(OsuModClassicStrings.FadeOutHitCirclesEarlier), nameof(OsuModClassicStrings.MakeHitCirclesFadeOut))]
         public Bindable<bool> FadeHitCircleEarly { get; } = new Bindable<bool>(true);
 
-        [SettingSource("Classic health", "More closely resembles the original HP drain mechanics.")]
+        [SettingSource(typeof(OsuModClassicStrings), nameof(OsuModClassicStrings.ClassicHealth), nameof(OsuModClassicStrings.MoreCloselyResemblesTheOriginal))]
         public Bindable<bool> ClassicHealth { get; } = new Bindable<bool>(true);
 
         private bool usingHiddenFading;

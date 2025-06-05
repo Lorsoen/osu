@@ -2,6 +2,7 @@
 // See the LICENCE file in the repository root for full licence text.
 
 using osu.Framework.Localisation;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mania.Mods
 {
@@ -10,6 +11,6 @@ namespace osu.Game.Rulesets.Mania.Mods
         public override int KeyCount => 9;
         public override string Name => "Nine Keys";
         public override string Acronym => "9K";
-        public override LocalisableString Description => @"Play with nine keys.";
+        public override LocalisableString Description => ManiaModKey9Strings.PlayWithNineKeys;
     }
 }

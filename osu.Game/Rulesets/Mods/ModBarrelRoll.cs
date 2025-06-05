@@ -8,6 +8,7 @@ using osu.Framework.Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Localisation;
 using osu.Game.Configuration;
+using osu.Game.Localisation;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.UI;
 using osuTK;
@@ -23,7 +24,7 @@ namespace osu.Game.Rulesets.Mods
         /// </summary>
         protected float CurrentRotation { get; private set; }
 
-        [SettingSource("Roll speed", "Rotations per minute")]
+        [SettingSource(typeof(ModBarrelRollStrings), nameof(ModBarrelRollStrings.RollSpeed), nameof(ModBarrelRollStrings.RotationsPerMinute))]
         public BindableNumber<double> SpinSpeed { get; } = new BindableDouble(0.5)
         {
             MinValue = 0.02,
@@ -31,20 +32,20 @@ namespace osu.Game.Rulesets.Mods
             Precision = 0.01,
         };
 
-        [SettingSource("Direction", "The direction of rotation")]
+        [SettingSource(typeof(ModBarrelRollStrings), nameof(ModBarrelRollStrings.Direction), nameof(ModBarrelRollStrings.TheDirectionOfRotation))]
         public Bindable<RotationDirection> Direction { get; } = new Bindable<RotationDirection>();
 
         public override string Name => "Barrel Roll";
         public override string Acronym => "BR";
-        public override LocalisableString Description => "The whole playfield is on a wheel!";
+        public override LocalisableString Description => ModBarrelRollStrings.TheWholePlayfieldIsOn;
         public override double ScoreMultiplier => 1;
 
         public override IEnumerable<(LocalisableString setting, LocalisableString value)> SettingDescription
         {
             get
             {
-                yield return ("Roll speed", $"{SpinSpeed.Value:N2} rpm");
-                yield return ("Direction", Direction.Value.GetDescription());
+                yield return (ModBarrelRollStrings.RollSpeed, $"{SpinSpeed.Value:N2} RPM");
+                yield return (ModBarrelRollStrings.Direction, Direction.Value.GetDescription());
             }
         }
 

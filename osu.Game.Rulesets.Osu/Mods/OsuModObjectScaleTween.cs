@@ -9,6 +9,7 @@ using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Objects.Drawables;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -21,7 +22,7 @@ namespace osu.Game.Rulesets.Osu.Mods
 
         public override double ScoreMultiplier => 1;
 
-        [SettingSource("Starting Size", "The initial size multiplier applied to all objects.")]
+        [SettingSource(typeof(OsuModObjectScaleTweenStrings), nameof(OsuModObjectScaleTweenStrings.StartingSize), nameof(OsuModObjectScaleTweenStrings.TheInitialSizeMultiplierApplied))]
         public abstract BindableNumber<float> StartScale { get; }
 
         protected virtual float EndScale => 1;

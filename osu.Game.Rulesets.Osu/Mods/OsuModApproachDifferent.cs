@@ -10,6 +10,7 @@ using osu.Game.Configuration;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Objects.Drawables;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -17,13 +18,13 @@ namespace osu.Game.Rulesets.Osu.Mods
     {
         public override string Name => "Approach Different";
         public override string Acronym => "AD";
-        public override LocalisableString Description => "Never trust the approach circles...";
+        public override LocalisableString Description => OsuModApproachDifferentStrings.NeverTrustTheApproachCircles;
         public override double ScoreMultiplier => 1;
         public override IconUsage? Icon { get; } = FontAwesome.Regular.Circle;
 
         public override Type[] IncompatibleMods => new[] { typeof(IHidesApproachCircles), typeof(OsuModFreezeFrame) };
 
-        [SettingSource("Initial size", "Change the initial size of the approach circle, relative to hit circles.", 0)]
+        [SettingSource(typeof(OsuModApproachDifferentStrings), nameof(OsuModApproachDifferentStrings.InitialSize), nameof(OsuModApproachDifferentStrings.ChangeTheInitialSizeOf), 0)]
         public BindableFloat Scale { get; } = new BindableFloat(4)
         {
             Precision = 0.1f,
@@ -31,7 +32,7 @@ namespace osu.Game.Rulesets.Osu.Mods
             MaxValue = 10,
         };
 
-        [SettingSource("Style", "Change the animation style of the approach circles.", 1)]
+        [SettingSource(typeof(OsuModApproachDifferentStrings), nameof(OsuModApproachDifferentStrings.Style), nameof(OsuModApproachDifferentStrings.ChangeTheAnimationStyleOf), 1)]
         public Bindable<AnimationStyle> Style { get; } = new Bindable<AnimationStyle>(AnimationStyle.Gravity);
 
         public void ApplyToDrawableHitObject(DrawableHitObject drawable)

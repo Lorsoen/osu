@@ -11,6 +11,7 @@ using osu.Game.Beatmaps;
 using osu.Game.Configuration;
 using osu.Game.Overlays.Settings;
 using osu.Game.Rulesets.UI;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -23,13 +24,13 @@ namespace osu.Game.Rulesets.Mods
 
         public override double ScoreMultiplier => 0.5;
 
-        [SettingSource("Initial rate", "The starting speed of the track", SettingControlType = typeof(MultiplierSettingsSlider))]
+        [SettingSource(typeof(ModTimeRampStrings), nameof(ModTimeRampStrings.InitialRate), nameof(ModTimeRampStrings.TheStartingSpeedOfThe), SettingControlType = typeof(MultiplierSettingsSlider))]
         public abstract BindableNumber<double> InitialRate { get; }
 
-        [SettingSource("Final rate", "The final speed to ramp to", SettingControlType = typeof(MultiplierSettingsSlider))]
+        [SettingSource(typeof(ModTimeRampStrings), nameof(ModTimeRampStrings.FinalRate), nameof(ModTimeRampStrings.TheFinalSpeedToRamp), SettingControlType = typeof(MultiplierSettingsSlider))]
         public abstract BindableNumber<double> FinalRate { get; }
 
-        [SettingSource("Adjust pitch", "Should pitch be adjusted with speed")]
+        [SettingSource(typeof(ModTimeRampStrings), nameof(ModTimeRampStrings.AdjustPitch), nameof(ModTimeRampStrings.ShouldPitchBeAdjustedWith))]
         public abstract BindableBool AdjustPitch { get; }
 
         public sealed override bool ValidForFreestyleAsRequiredMod => true;
@@ -41,10 +42,10 @@ namespace osu.Game.Rulesets.Mods
         {
             get
             {
-                yield return ("Speed change", $"{InitialRate.Value:N2}x to {FinalRate.Value:N2}x");
+                yield return (ModTimeRampStrings.SpeedChange, ModTimeRampStrings.XToX2(InitialRate.Value, FinalRate.Value));
 
                 if (!AdjustPitch.IsDefault)
-                    yield return ("Adjust pitch", AdjustPitch.Value ? "On" : "Off");
+                    yield return (ModTimeRampStrings.AdjustPitch, AdjustPitch.Value ? ModTimeRampStrings.On : ModTimeRampStrings.Off);
             }
         }
 

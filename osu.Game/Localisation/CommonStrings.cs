@@ -184,6 +184,31 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString CopyLink => new TranslatableString(getKey(@"copy_link"), @"Copy link");
 
+        /// <summary>
+        /// "On"
+        /// </summary>
+        public static LocalisableString On => new TranslatableString(getKey(@"on"), @"On");
+
+        /// <summary>
+        /// "Off"
+        /// </summary>
+        public static LocalisableString Off => new TranslatableString(getKey(@"off"), @"Off");
+
+        /// <summary>
+        /// "Incompatible with:"
+        /// </summary>
+        public static LocalisableString IncompatibleWith => new TranslatableString(getKey(@"incompatible_with"), @"Incompatible with:");
+
+        /// <summary>
+        /// "Compatible with all mods"
+        /// </summary>
+        public static LocalisableString CompatibleWithAllMods => new TranslatableString(getKey(@"compatible_with_all_mods"), @"Compatible with all mods");
+
+        /// <summary>
+        /// "lives"
+        /// </summary>
+        public static LocalisableString Lives => new TranslatableString(getKey(@"lives"), @"lives");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

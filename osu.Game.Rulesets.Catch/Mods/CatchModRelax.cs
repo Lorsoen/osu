@@ -12,12 +12,13 @@ using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Catch.Mods
 {
     public partial class CatchModRelax : ModRelax, IApplicableToDrawableRuleset<CatchHitObject>, IApplicableToPlayer
     {
-        public override LocalisableString Description => @"Use the mouse to control the catcher.";
+        public override LocalisableString Description => CatchModRelaxStrings.UseTheMouseToControl;
 
         private DrawableCatchRuleset drawableRuleset = null!;
 

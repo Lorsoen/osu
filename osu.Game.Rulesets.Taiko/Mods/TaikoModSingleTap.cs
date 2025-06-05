@@ -9,6 +9,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Input.Bindings;
 using osu.Framework.Input.Events;
 using osu.Game.Beatmaps.Timing;
+using osu.Game.Localisation;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Taiko.Objects;
@@ -24,7 +25,7 @@ namespace osu.Game.Rulesets.Taiko.Mods
     {
         public override string Name => @"Single Tap";
         public override string Acronym => @"SG";
-        public override LocalisableString Description => @"One key for dons, one key for kats.";
+        public override LocalisableString Description => TaikoModSingleTapStrings.OneKeyForDonsOne;
 
         public override double ScoreMultiplier => 1.0;
         public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(ModRelax), typeof(TaikoModCinema) };

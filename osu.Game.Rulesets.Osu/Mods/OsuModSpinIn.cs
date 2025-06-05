@@ -10,6 +10,7 @@ using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Objects.Drawables;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -19,7 +20,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override string Acronym => "SI";
         public override IconUsage? Icon => FontAwesome.Solid.Undo;
         public override ModType Type => ModType.Fun;
-        public override LocalisableString Description => "Circles spin in. No approach circles.";
+        public override LocalisableString Description => OsuModSpinInStrings.CirclesSpinInNoApproach;
         public override double ScoreMultiplier => 1;
 
         // todo: this mod needs to be incompatible with "hidden" due to forcing the circle to remain opaque,

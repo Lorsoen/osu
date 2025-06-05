@@ -2,6 +2,7 @@
 // See the LICENCE file in the repository root for full licence text.
 
 using osu.Framework.Localisation;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -12,7 +13,7 @@ namespace osu.Game.Rulesets.Mods
     {
         public override string Name => "Synesthesia";
         public override string Acronym => "SY";
-        public override LocalisableString Description => "Colours hit objects based on the rhythm.";
+        public override LocalisableString Description => ModSynesthesiaStrings.ColoursHitObjectsBasedOn;
         public override double ScoreMultiplier => 0.8;
         public override ModType Type => ModType.Fun;
     }

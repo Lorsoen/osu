@@ -9,15 +9,16 @@ using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Utils;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
     public class OsuModMirror : ModMirror, IApplicableToHitObject
     {
-        public override LocalisableString Description => "Flip objects on the chosen axes.";
+        public override LocalisableString Description => OsuModMirrorStrings.FlipObjectsOnTheChosen;
         public override Type[] IncompatibleMods => new[] { typeof(ModHardRock) };
 
-        [SettingSource("Flipped axes")]
+        [SettingSource(typeof(OsuModMirrorStrings), nameof(OsuModMirrorStrings.FlippedAxes))]
         public Bindable<MirrorType> Reflection { get; } = new Bindable<MirrorType>();
 
         public void ApplyToHitObject(HitObject hitObject)

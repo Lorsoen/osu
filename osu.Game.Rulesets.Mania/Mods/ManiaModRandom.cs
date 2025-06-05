@@ -10,12 +10,13 @@ using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Mania.Beatmaps;
 using osu.Game.Rulesets.Mania.Objects;
 using osu.Game.Rulesets.Mods;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mania.Mods
 {
     public class ManiaModRandom : ModRandom, IApplicableToBeatmap
     {
-        public override LocalisableString Description => @"Shuffle around the keys!";
+        public override LocalisableString Description => ManiaModRandomStrings.ShuffleAroundTheKeys;
 
         public void ApplyToBeatmap(IBeatmap beatmap)
         {

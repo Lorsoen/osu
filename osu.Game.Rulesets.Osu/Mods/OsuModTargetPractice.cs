@@ -28,6 +28,7 @@ using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osuTK;
 using osuTK.Graphics;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -38,7 +39,7 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override string Acronym => "TP";
         public override ModType Type => ModType.Conversion;
         public override IconUsage? Icon => OsuIcon.ModTarget;
-        public override LocalisableString Description => @"Practice keeping up with the beat of the song.";
+        public override LocalisableString Description => OsuModTargetPracticeStrings.PracticeKeepingUpWithThe;
         public override double ScoreMultiplier => 0.1;
 
         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[]
@@ -51,10 +52,10 @@ namespace osu.Game.Rulesets.Osu.Mods
             typeof(OsuModDepth)
         }).ToArray();
 
-        [SettingSource("Seed", "Use a custom seed instead of a random one", SettingControlType = typeof(SettingsNumberBox))]
+        [SettingSource(typeof(OsuModTargetPracticeStrings), nameof(OsuModTargetPracticeStrings.Seed), nameof(OsuModTargetPracticeStrings.UseACustomSeedInstead), SettingControlType = typeof(SettingsNumberBox))]
         public Bindable<int?> Seed { get; } = new Bindable<int?>();
 
-        [SettingSource("Metronome ticks", "Whether a metronome beat should play in the background")]
+        [SettingSource(typeof(OsuModTargetPracticeStrings), nameof(OsuModTargetPracticeStrings.MetronomeTicks), nameof(OsuModTargetPracticeStrings.WhetherAMetronomeBeatShould))]
         public Bindable<bool> Metronome { get; } = new BindableBool(true);
 
         #region Constants

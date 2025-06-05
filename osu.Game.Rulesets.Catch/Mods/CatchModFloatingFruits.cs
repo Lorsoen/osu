@@ -7,6 +7,7 @@ using osu.Game.Rulesets.Catch.Objects;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.UI;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Catch.Mods
 {
@@ -14,7 +15,7 @@ namespace osu.Game.Rulesets.Catch.Mods
     {
         public override string Name => "Floating Fruits";
         public override string Acronym => "FF";
-        public override LocalisableString Description => "The fruits are... floating?";
+        public override LocalisableString Description => CatchModFloatingFruitsStrings.TheFruitsAreFloating;
         public override double ScoreMultiplier => 1;
         public override IconUsage? Icon => FontAwesome.Solid.Cloud;
 

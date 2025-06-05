@@ -9,6 +9,7 @@ using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Scoring;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -19,7 +20,7 @@ namespace osu.Game.Rulesets.Osu.Mods
             typeof(OsuModTargetPractice),
         }).ToArray();
 
-        [SettingSource("Also fail when missing a slider tail")]
+        [SettingSource(typeof(OsuModSuddenDeathStrings), nameof(OsuModSuddenDeathStrings.AlsoFailWhenMissingA))]
         public BindableBool FailOnSliderTail { get; } = new BindableBool();
 
         protected override bool FailCondition(HealthProcessor healthProcessor, JudgementResult result)

@@ -6,6 +6,7 @@ using osu.Framework.Bindables;
 using osu.Game.Configuration;
 using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.Scoring;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -13,7 +14,7 @@ namespace osu.Game.Rulesets.Mods
     {
         public override Type[] IncompatibleMods => new[] { typeof(ModNoFail), typeof(ModCinema) };
 
-        [SettingSource("Restart on fail", "Automatically restarts when failed.")]
+        [SettingSource(typeof(ModFailConditionStrings), nameof(ModFailConditionStrings.RestartOnFail), nameof(ModFailConditionStrings.AutomaticallyRestartsWhenFailed))]
         public BindableBool Restart { get; } = new BindableBool();
 
         public virtual bool PerformFail() => true;

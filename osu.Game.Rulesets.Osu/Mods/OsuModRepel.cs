@@ -16,6 +16,7 @@ using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Rulesets.Osu.Utils;
 using osu.Game.Rulesets.UI;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -24,11 +25,11 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override string Name => "Repel";
         public override string Acronym => "RP";
         public override ModType Type => ModType.Fun;
-        public override LocalisableString Description => "Hit objects run away!";
+        public override LocalisableString Description => OsuModRepelStrings.HitObjectsRunAway;
         public override double ScoreMultiplier => 1;
         public override Type[] IncompatibleMods => new[] { typeof(OsuModAutopilot), typeof(OsuModWiggle), typeof(OsuModTransform), typeof(ModAutoplay), typeof(OsuModMagnetised), typeof(OsuModBubbles), typeof(OsuModDepth) };
 
-        [SettingSource("Repulsion strength", "How strong the repulsion is.", 0)]
+        [SettingSource(typeof(OsuModRepelStrings), nameof(OsuModRepelStrings.RepulsionStrength), nameof(OsuModRepelStrings.HowStrongTheRepulsionIs), 0)]
         public BindableFloat RepulsionStrength { get; } = new BindableFloat(0.5f)
         {
             Precision = 0.05f,

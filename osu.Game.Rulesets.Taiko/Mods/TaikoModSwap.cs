@@ -8,6 +8,7 @@ using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Taiko.Beatmaps;
 using osu.Game.Rulesets.Taiko.Objects;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Taiko.Mods
 {
@@ -15,7 +16,7 @@ namespace osu.Game.Rulesets.Taiko.Mods
     {
         public override string Name => "Swap";
         public override string Acronym => "SW";
-        public override LocalisableString Description => @"Dons become kats, kats become dons";
+        public override LocalisableString Description => TaikoModSwapStrings.DonsBecomeKatsKatsBecome;
         public override ModType Type => ModType.Conversion;
         public override double ScoreMultiplier => 1;
         public override Type[] IncompatibleMods => base.IncompatibleMods.Append(typeof(ModRandom)).ToArray();

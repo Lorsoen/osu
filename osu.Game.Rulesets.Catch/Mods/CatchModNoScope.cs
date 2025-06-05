@@ -8,12 +8,13 @@ using osu.Game.Rulesets.Mods;
 using osu.Framework.Utils;
 using osu.Game.Rulesets.Catch.UI;
 using osu.Game.Rulesets.UI;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Catch.Mods
 {
     public class CatchModNoScope : ModNoScope, IUpdatableByPlayfield
     {
-        public override LocalisableString Description => "Where's the catcher?";
+        public override LocalisableString Description => CatchModNoScopeStrings.WheresTheCatcher;
 
         public override BindableInt HiddenComboCount { get; } = new BindableInt(10)
         {

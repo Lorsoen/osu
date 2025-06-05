@@ -16,6 +16,7 @@ using osu.Game.Rulesets.Osu.Objects.Drawables;
 using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Rulesets.UI;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -25,11 +26,11 @@ namespace osu.Game.Rulesets.Osu.Mods
         public override string Acronym => "MG";
         public override IconUsage? Icon => FontAwesome.Solid.Magnet;
         public override ModType Type => ModType.Fun;
-        public override LocalisableString Description => "No need to chase the circles – your cursor is a magnet!";
+        public override LocalisableString Description => OsuModMagnetisedStrings.NoNeedToChaseThe;
         public override double ScoreMultiplier => 0.5;
         public override Type[] IncompatibleMods => new[] { typeof(OsuModAutopilot), typeof(OsuModWiggle), typeof(OsuModTransform), typeof(ModAutoplay), typeof(OsuModRelax), typeof(OsuModRepel), typeof(OsuModBubbles), typeof(OsuModDepth) };
 
-        [SettingSource("Attraction strength", "How strong the pull is.", 0)]
+        [SettingSource(typeof(OsuModMagnetisedStrings), nameof(OsuModMagnetisedStrings.AttractionStrength), nameof(OsuModMagnetisedStrings.HowStrongThePullIs), 0)]
         public BindableFloat AttractionStrength { get; } = new BindableFloat(0.5f)
         {
             Precision = 0.05f,

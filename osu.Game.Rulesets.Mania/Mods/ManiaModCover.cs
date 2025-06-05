@@ -7,6 +7,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Localisation;
 using osu.Game.Configuration;
 using osu.Game.Rulesets.Mania.UI;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mania.Mods
 {
@@ -15,7 +16,7 @@ namespace osu.Game.Rulesets.Mania.Mods
         public override string Name => "Cover";
         public override string Acronym => "CO";
 
-        public override LocalisableString Description => @"Decrease the playfield's viewing area.";
+        public override LocalisableString Description => ManiaModCoverStrings.DecreaseThePlayfieldsViewingArea;
 
         public override double ScoreMultiplier => 1;
 
@@ -31,7 +32,7 @@ namespace osu.Game.Rulesets.Mania.Mods
 
         public override bool ValidForFreestyleAsRequiredMod => false;
 
-        [SettingSource("Coverage", "The proportion of playfield height that notes will be hidden for.")]
+        [SettingSource(typeof(ManiaModCoverStrings), nameof(ManiaModCoverStrings.Coverage), nameof(ManiaModCoverStrings.TheProportionOfPlayfieldHeight))]
         public override BindableNumber<float> Coverage { get; } = new BindableFloat(0.5f)
         {
             Precision = 0.1f,
@@ -40,7 +41,7 @@ namespace osu.Game.Rulesets.Mania.Mods
             Default = 0.5f,
         };
 
-        [SettingSource("Direction", "The direction on which the cover is applied")]
+        [SettingSource(typeof(ManiaModCoverStrings), nameof(ManiaModCoverStrings.Direction), nameof(ManiaModCoverStrings.TheDirectionOnWhichThe))]
         public Bindable<CoverExpandDirection> Direction { get; } = new Bindable<CoverExpandDirection>();
     }
 }

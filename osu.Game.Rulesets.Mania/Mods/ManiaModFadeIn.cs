@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using osu.Framework.Localisation;
 using osu.Game.Rulesets.Mania.UI;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mania.Mods
 {
@@ -12,7 +13,7 @@ namespace osu.Game.Rulesets.Mania.Mods
     {
         public override string Name => "Fade In";
         public override string Acronym => "FI";
-        public override LocalisableString Description => @"Keys appear out of nowhere!";
+        public override LocalisableString Description => ManiaModFadeInStrings.KeysAppearOutOfNowhere;
         public override double ScoreMultiplier => 1;
         public override bool ValidForFreestyleAsRequiredMod => false;
 

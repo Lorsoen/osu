@@ -10,12 +10,13 @@ using osu.Framework.Localisation;
 using osu.Game.Beatmaps;
 using osu.Game.Configuration;
 using osu.Game.Rulesets.Scoring;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
     public abstract class ModEasyWithExtraLives : ModEasy, IApplicableFailOverride, IApplicableToHealthProcessor
     {
-        [SettingSource("Extra Lives", "Number of extra lives")]
+        [SettingSource(typeof(ModEasyWithExtraLivesStrings), nameof(ModEasyWithExtraLivesStrings.ExtraLives), nameof(ModEasyWithExtraLivesStrings.NumberOfExtraLives))]
         public Bindable<int> Retries { get; } = new BindableInt(2)
         {
             MinValue = 0,
@@ -27,7 +28,7 @@ namespace osu.Game.Rulesets.Mods
             get
             {
                 if (!Retries.IsDefault)
-                    yield return ("Extra lives", "lives".ToQuantity(Retries.Value));
+                    yield return (ModEasyWithExtraLivesStrings.Extralives, "lives".ToQuantity(Retries.Value));
             }
         }
 

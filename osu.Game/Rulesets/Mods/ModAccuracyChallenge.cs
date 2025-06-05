@@ -13,6 +13,7 @@ using osu.Game.Overlays.Settings;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.Judgements;
 using osu.Game.Scoring;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Mods
 {
@@ -22,7 +23,7 @@ namespace osu.Game.Rulesets.Mods
 
         public override string Acronym => "AC";
 
-        public override LocalisableString Description => "Fail if your accuracy drops too low!";
+        public override LocalisableString Description => ModAccuracyChallengeStrings.FailIfYourAccuracyDrops;
 
         public override ModType Type => ModType.DifficultyIncrease;
 
@@ -41,17 +42,17 @@ namespace osu.Game.Rulesets.Mods
             get
             {
                 if (!MinimumAccuracy.IsDefault)
-                    yield return ("Minimum accuracy", $"{MinimumAccuracy.Value:##%}");
+                    yield return (ModAccuracyChallengeStrings.MinimumAccuracy, $"{MinimumAccuracy.Value:##%}");
 
                 if (!AccuracyJudgeMode.IsDefault)
-                    yield return ("Accuracy mode", AccuracyJudgeMode.Value.ToLocalisableString());
+                    yield return (ModAccuracyChallengeStrings.AccuracyMode, AccuracyJudgeMode.Value.ToLocalisableString());
 
                 if (!Restart.IsDefault)
-                    yield return ("Restart on fail", "On");
+                    yield return (ModAccuracyChallengeStrings.RestartOnFail, CommonStrings.On);
             }
         }
 
-        [SettingSource("Minimum accuracy", "Trigger a failure if your accuracy goes below this value.", SettingControlType = typeof(SettingsPercentageSlider<double>))]
+        [SettingSource(typeof(ModAccuracyChallengeStrings), nameof(ModAccuracyChallengeStrings.MinimumAccuracy), nameof(ModAccuracyChallengeStrings.TriggerAFailureIfYour), SettingControlType = typeof(SettingsPercentageSlider<double>))]
         public BindableNumber<double> MinimumAccuracy { get; } = new BindableDouble
         {
             MinValue = 0.60,
@@ -61,7 +62,7 @@ namespace osu.Game.Rulesets.Mods
             Value = 0.9,
         };
 
-        [SettingSource("Accuracy mode", "The mode of accuracy that will trigger failure.")]
+        [SettingSource(typeof(ModAccuracyChallengeStrings), nameof(ModAccuracyChallengeStrings.AccuracyMode), nameof(ModAccuracyChallengeStrings.TheModeOfAccuracyThat))]
         public Bindable<AccuracyMode> AccuracyJudgeMode { get; } = new Bindable<AccuracyMode>();
 
         private readonly Bindable<double> currentAccuracy = new Bindable<double>();
