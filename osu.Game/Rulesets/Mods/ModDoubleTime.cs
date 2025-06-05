@@ -41,7 +41,7 @@ namespace osu.Game.Rulesets.Mods
                     yield return description;
 
                 if (!AdjustPitch.IsDefault)
-                    yield return (ModDoubleTimeStrings.AdjustPitch, AdjustPitch.Value ? CommonStrings.On : CommonStrings.Off);
+                    yield return (ModDoubleTimeStrings.AdjustPitch, AdjustPitch.Value ? "On" : "Off");
             }
         }
 

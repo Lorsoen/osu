@@ -70,7 +70,7 @@ namespace osu.Game.Rulesets.Catch.Mods
                     yield return (CatchModDifficultyAdjustStrings.Approachrate, $"{ApproachRate.Value:N1}");
 
                 if (!HardRockOffsets.IsDefault)
-                    yield return (CatchModDifficultyAdjustStrings.SpicyPatterns1, CommonStrings.On);
+                    yield return (CatchModDifficultyAdjustStrings.SpicyPatterns1, "On");
             }
         }
 

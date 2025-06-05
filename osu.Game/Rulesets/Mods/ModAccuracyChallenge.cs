@@ -46,7 +46,7 @@ namespace osu.Game.Rulesets.Mods
                     yield return (ModAccuracyChallengeStrings.AccuracyMode, AccuracyJudgeMode.Value.ToLocalisableString());
 
                 if (!Restart.IsDefault)
-                    yield return (ModAccuracyChallengeStrings.RestartOnFail, CommonStrings.On);
+                    yield return (ModAccuracyChallengeStrings.RestartOnFail, "On");
             }
         }
 

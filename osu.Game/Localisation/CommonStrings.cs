@@ -185,16 +185,6 @@ namespace osu.Game.Localisation
         public static LocalisableString CopyLink => new TranslatableString(getKey(@"copy_link"), @"Copy link");
 
         /// <summary>
-        /// "On"
-        /// </summary>
-        public static LocalisableString On => new TranslatableString(getKey(@"on"), @"On");
-
-        /// <summary>
-        /// "Off"
-        /// </summary>
-        public static LocalisableString Off => new TranslatableString(getKey(@"off"), @"Off");
-
-        /// <summary>
         /// "Incompatible with:"
         /// </summary>
         public static LocalisableString IncompatibleWith => new TranslatableString(getKey(@"incompatible_with"), @"Incompatible with:");

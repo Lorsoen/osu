@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.Mods
                 yield return (ModTimeRampStrings.SpeedChange, ModTimeRampStrings.XToX2(InitialRate.Value, FinalRate.Value));
 
                 if (!AdjustPitch.IsDefault)
-                    yield return (ModTimeRampStrings.AdjustPitch, AdjustPitch.Value ? ModTimeRampStrings.On : ModTimeRampStrings.Off);
+                    yield return (ModTimeRampStrings.AdjustPitch, AdjustPitch.Value ? "On" : "Off");
             }
         }
 
