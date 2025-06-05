@@ -38,7 +38,6 @@ namespace osu.Game.Rulesets.Mods
         public override ModType Type => ModType.DifficultyIncrease;
         public override LocalisableString Description => ModDescriptionStrings.FlashlightDescription;
         public override bool Ranked => UsesDefaultConfiguration;
-        public override bool ValidForFreestyleAsRequiredMod => true;
 
         [SettingSource(typeof(ModDescriptionStrings), nameof(ModDescriptionStrings.FlashlightSize), nameof(ModDescriptionStrings.FlashlightSizeDescription))]
         public abstract BindableFloat SizeMultiplier { get; }
