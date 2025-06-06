@@ -199,6 +199,91 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString Lives => new TranslatableString(getKey(@"lives"), @"lives");
 
+        /// <summary>
+        /// "Along scroll"
+        /// </summary>
+        public static LocalisableString AlongScroll => new TranslatableString(getKey(@"along_scroll"), @"Along scroll");
+
+        /// <summary>
+        /// "Against scroll"
+        /// </summary>
+        public static LocalisableString AgainstScroll => new TranslatableString(getKey(@"against_scroll"), @"Against scroll");
+
+        /// <summary>
+        /// "Horizontal"
+        /// </summary>
+        public static LocalisableString Horizontal => new TranslatableString(getKey(@"horizontal"), @"Horizontal");
+
+        /// <summary>
+        /// "Vertical"
+        /// </summary>
+        public static LocalisableString Vertical => new TranslatableString(getKey(@"vertical"), @"Vertical");
+
+        /// <summary>
+        /// "Both"
+        /// </summary>
+        public static LocalisableString Both => new TranslatableString(getKey(@"both"), @"Both");
+
+        /// <summary>
+        /// "Clockwise"
+        /// </summary>
+        public static LocalisableString Clockwise => new TranslatableString(getKey(@"clockwise"), @"Clockwise");
+
+        /// <summary>
+        /// "Counterclockwise"
+        /// </summary>
+        public static LocalisableString Counterclockwise => new TranslatableString(getKey(@"counterclockwise"), @"Counterclockwise");
+
+        /// <summary>
+        /// "Linear"
+        /// </summary>
+        public static LocalisableString Linear => new TranslatableString(getKey(@"linear"), @"Linear");
+
+        /// <summary>
+        /// "Gravity"
+        /// </summary>
+        public static LocalisableString Gravity => new TranslatableString(getKey(@"gravity"), @"Gravity");
+
+        /// <summary>
+        /// "InOut1"
+        /// </summary>
+        public static LocalisableString InOut => new TranslatableString(getKey(@"in_out"), @"InOut1");
+
+        /// <summary>
+        /// "InOut2"
+        /// </summary>
+        public static LocalisableString InOut1 => new TranslatableString(getKey(@"in_out1"), @"InOut2");
+
+        /// <summary>
+        /// "Accelerate1"
+        /// </summary>
+        public static LocalisableString Accelerate => new TranslatableString(getKey(@"accelerate"), @"Accelerate1");
+
+        /// <summary>
+        /// "Accelerate2"
+        /// </summary>
+        public static LocalisableString Accelerate1 => new TranslatableString(getKey(@"accelerate1"), @"Accelerate2");
+
+        /// <summary>
+        /// "Accelerate3"
+        /// </summary>
+        public static LocalisableString Accelerate2 => new TranslatableString(getKey(@"accelerate2"), @"Accelerate3");
+
+        /// <summary>
+        /// "Decelerate1"
+        /// </summary>
+        public static LocalisableString Decelerate => new TranslatableString(getKey(@"decelerate"), @"Decelerate1");
+
+        /// <summary>
+        /// "Decelerate2"
+        /// </summary>
+        public static LocalisableString Decelerate1 => new TranslatableString(getKey(@"decelerate1"), @"Decelerate2");
+
+        /// <summary>
+        /// "Decelerate3"
+        /// </summary>
+        public static LocalisableString Decelerate2 => new TranslatableString(getKey(@"decelerate2"), @"Decelerate3");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

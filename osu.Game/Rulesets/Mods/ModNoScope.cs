@@ -12,7 +12,7 @@ using osu.Game.Overlays.Settings;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Scoring;
 using osu.Game.Screens.Play;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Mods
 {

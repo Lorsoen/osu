@@ -6,7 +6,7 @@ using osu.Framework.Bindables;
 using osu.Game.Configuration;
 using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.Scoring;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Mods
 {

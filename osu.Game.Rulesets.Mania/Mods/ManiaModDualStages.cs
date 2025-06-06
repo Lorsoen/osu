@@ -3,7 +3,7 @@
 
 using osu.Framework.Localisation;
 using osu.Game.Beatmaps;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 using osu.Game.Rulesets.Mania.Beatmaps;
 using osu.Game.Rulesets.Mods;
 

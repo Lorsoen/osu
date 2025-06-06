@@ -14,7 +14,7 @@ using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Scoring;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Mods
 {

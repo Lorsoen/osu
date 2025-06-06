@@ -9,6 +9,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Localisation;
 using osu.Game.Configuration;
 using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.UI;
 using osuTK;
@@ -66,6 +67,14 @@ namespace osu.Game.Rulesets.Mods
 
             playfieldAdjustmentContainer = drawableRuleset.PlayfieldAdjustmentContainer;
             playfieldAdjustmentContainer.Scale = new Vector2(minSide / maxSide);
+        }
+
+        public enum RotationDirection
+        {
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Clockwise))]
+            Clockwise,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Counterclockwise))]
+            Counterclockwise,
         }
     }
 }

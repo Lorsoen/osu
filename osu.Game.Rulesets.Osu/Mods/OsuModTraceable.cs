@@ -11,7 +11,7 @@ using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Skinning.Default;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {

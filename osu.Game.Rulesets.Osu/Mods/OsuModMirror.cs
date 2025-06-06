@@ -10,6 +10,7 @@ using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.Utils;
 using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -44,8 +45,11 @@ namespace osu.Game.Rulesets.Osu.Mods
 
         public enum MirrorType
         {
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Horizontal))]
             Horizontal,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Vertical))]
             Vertical,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Both))]
             Both
         }
     }

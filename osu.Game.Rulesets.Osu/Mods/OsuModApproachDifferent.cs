@@ -11,6 +11,7 @@ using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Osu.Objects.Drawables;
 using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {
@@ -91,15 +92,25 @@ namespace osu.Game.Rulesets.Osu.Mods
 
         public enum AnimationStyle
         {
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Linear))]
             Linear,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Gravity))]
             Gravity,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.InOut))]
             InOut1,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.InOut1))]
             InOut2,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Accelerate))]
             Accelerate1,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Accelerate1))]
             Accelerate2,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Accelerate2))]
             Accelerate3,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Decelerate))]
             Decelerate1,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Decelerate1))]
             Decelerate2,
+            [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.Decelerate2))]
             Decelerate3,
         }
     }

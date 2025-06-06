@@ -4,7 +4,7 @@
 using System;
 using System.Linq;
 using osu.Framework.Localisation;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {

@@ -9,7 +9,7 @@ using osu.Game.Rulesets.Mania.UI;
 using osu.Framework.Bindables;
 using osu.Framework.Extensions.ObjectExtensions;
 using osu.Framework.Graphics;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 using osu.Game.Rulesets.Mania.Skinning;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Scoring;

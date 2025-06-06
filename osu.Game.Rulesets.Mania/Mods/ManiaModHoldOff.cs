@@ -4,7 +4,7 @@
 using System;
 using System.Linq;
 using osu.Game.Beatmaps;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 using osu.Game.Rulesets.Mania.Objects;
 using osu.Game.Rulesets.Mods;
 using osu.Framework.Graphics.Sprites;

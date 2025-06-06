@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using osu.Framework.Localisation;
 using osu.Game.Beatmaps;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects;

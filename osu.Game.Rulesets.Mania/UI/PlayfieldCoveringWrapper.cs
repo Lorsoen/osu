@@ -6,11 +6,13 @@ using System.ComponentModel;
 using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Extensions.Color4Extensions;
+using osu.Framework.Localisation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Colour;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Utils;
+using osu.Game.Localisation;
 using osu.Game.Rulesets.UI.Scrolling;
 using osuTK;
 using osuTK.Graphics;
@@ -159,13 +161,13 @@ namespace osu.Game.Rulesets.Mania.UI
         /// <summary>
         /// The cover expands along the scrolling direction.
         /// </summary>
-        [Description("Along scroll")]
+        [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.AlongScroll))]
         AlongScroll,
 
         /// <summary>
         /// The cover expands against the scrolling direction.
         /// </summary>
-        [Description("Against scroll")]
+        [LocalisableDescription(typeof(CommonStrings), nameof(CommonStrings.AgainstScroll))]
         AgainstScroll
     }
 }

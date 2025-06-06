@@ -3,7 +3,7 @@
 
 using osu.Framework.Localisation;
 using osu.Game.Rulesets.Mods;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {

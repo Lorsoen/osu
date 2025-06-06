@@ -15,7 +15,7 @@ using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
 using static osu.Game.Input.Handlers.ReplayInputHandler;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Osu.Mods
 {

@@ -7,7 +7,7 @@ using osu.Game.Rulesets.Catch.Objects;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.UI;
 using osuTK;
-using osu.Game.Localisation;
+using osu.Game.Localisation.Mods;
 
 namespace osu.Game.Rulesets.Catch.Mods
 {
