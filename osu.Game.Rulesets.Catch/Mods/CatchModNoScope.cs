@@ -9,12 +9,17 @@ using osu.Framework.Utils;
 using osu.Game.Rulesets.Catch.UI;
 using osu.Game.Rulesets.UI;
 using osu.Game.Localisation.Mods;
+using osu.Game.Configuration;
+using osu.Game.Overlays.Settings;
 
 namespace osu.Game.Rulesets.Catch.Mods
 {
     public class CatchModNoScope : ModNoScope, IUpdatableByPlayfield
     {
         public override LocalisableString Description => CatchModNoScopeStrings.WheresTheCatcher;
+
+        [SettingSource(typeof(CatchModNoScopeStrings), nameof(CatchModNoScopeStrings.HiddenAtCombo), nameof(CatchModNoScopeStrings.TheComboCountAtWhich), SettingControlType = typeof(SettingsSlider<int, HiddenComboSlider>)
+)]
 
         public override BindableInt HiddenComboCount { get; } = new BindableInt(10)
         {

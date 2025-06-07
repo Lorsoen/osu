@@ -42,7 +42,7 @@ namespace osu.Game.Rulesets.Mods
         [SettingSource(typeof(ModDescriptionStrings), nameof(ModDescriptionStrings.FlashlightSize), nameof(ModDescriptionStrings.FlashlightSizeDescription))]
         public abstract BindableFloat SizeMultiplier { get; }
 
-        [SettingSource(typeof(ModDescriptionStrings), nameof(ModDescriptionStrings.SizeOnComboDescription), nameof(ModDescriptionStrings.SizeOnComboDescription))]
+        [SettingSource(typeof(ModDescriptionStrings), nameof(ModDescriptionStrings.SizeOnCombo), nameof(ModDescriptionStrings.SizeOnComboDescription))]
         public abstract BindableBool ComboBasedSize { get; }
 
         /// <summary>
