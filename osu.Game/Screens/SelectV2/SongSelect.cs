@@ -305,6 +305,9 @@ namespace osu.Game.Screens.SelectV2
 
             Beatmap.BindValueChanged(_ =>
             {
+                if (!this.IsCurrentScreen())
+                    return;
+
                 ensureGlobalBeatmapValid();
 
                 ensurePlayingSelected(true);
@@ -444,7 +447,13 @@ namespace osu.Game.Screens.SelectV2
 
             // Debounce consideration is to avoid beatmap churn on key repeat selection.
             selectionDebounce?.Cancel();
-            selectionDebounce = Scheduler.AddDelayed(() => Beatmap.Value = beatmaps.GetWorkingBeatmap(beatmap), SELECTION_DEBOUNCE);
+            selectionDebounce = Scheduler.AddDelayed(() =>
+            {
+                if (Beatmap.Value.BeatmapInfo.Equals(beatmap))
+                    return;
+
+                Beatmap.Value = beatmaps.GetWorkingBeatmap(beatmap);
+            }, SELECTION_DEBOUNCE);
         }
 
         private bool ensureGlobalBeatmapValid()
@@ -703,14 +712,14 @@ namespace osu.Game.Screens.SelectV2
                 noResultsPlaceholder.Filter = carousel.Criteria!;
 
                 attachTrackDuckingIfShould();
-                rightGradientBackground.ResizeWidthTo(3, 1000, Easing.OutQuint);
+                rightGradientBackground.ResizeWidthTo(3, 1000, Easing.OutPow10);
             }
             else
             {
                 noResultsPlaceholder.Hide();
 
                 detachTrackDucking();
-                rightGradientBackground.ResizeWidthTo(1, 500, Easing.OutQuint);
+                rightGradientBackground.ResizeWidthTo(1, 400, Easing.OutPow10);
             }
         }
 
