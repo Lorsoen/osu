@@ -9,6 +9,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
 using osu.Framework.Input.Events;
+using osu.Framework.Localisation;
 using osu.Framework.Utils;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Containers;
@@ -21,7 +22,7 @@ namespace osu.Game.Overlays
 {
     public partial class SettingsToolboxGroup : Container, IExpandable
     {
-        private readonly string title;
+        private readonly LocalisableString title;
         public const int CONTAINER_WIDTH = 270;
 
         private const float transition_duration = 250;

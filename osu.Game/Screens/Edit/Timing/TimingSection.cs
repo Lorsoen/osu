@@ -36,9 +36,9 @@ namespace osu.Game.Screens.Edit.Timing
                 bpmTextEntry = new BPMTextBox(),
                 timeSignature = new LabelledTimeSignature
                 {
-                    Label = "Time Signature"
+                    Label = TimingSectionStrings.TimeSignature
                 },
-                omitBarLine = new LabelledSwitchButton { Label = "Skip Bar Line" },
+                omitBarLine = new LabelledSwitchButton { Label = TimingSectionStrings.SkipBarLine },
             });
         }
 

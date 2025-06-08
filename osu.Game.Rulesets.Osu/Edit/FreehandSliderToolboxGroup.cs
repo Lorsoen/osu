@@ -7,6 +7,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Rulesets.Edit;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Edit
 {
@@ -87,24 +88,24 @@ namespace osu.Game.Rulesets.Osu.Edit
 
             displayTolerance.BindValueChanged(tolerance =>
             {
-                toleranceSlider.ContractedLabelText = $"C. P. S.: {tolerance.NewValue:N0}";
-                toleranceSlider.ExpandedLabelText = $"Control Point Spacing: {tolerance.NewValue:N0}";
+                toleranceSlider.ContractedLabelText = FreehandSliderToolboxGroupStrings.CPS(tolerance.NewValue);
+                toleranceSlider.ExpandedLabelText = FreehandSliderToolboxGroupStrings.ControlPointSpacing(tolerance.NewValue);
 
                 Tolerance.Value = displayToInternalTolerance(tolerance.NewValue);
             }, true);
 
             displayCornerThreshold.BindValueChanged(threshold =>
             {
-                cornerThresholdSlider.ContractedLabelText = $"C. T.: {threshold.NewValue:N0}";
-                cornerThresholdSlider.ExpandedLabelText = $"Corner Threshold: {threshold.NewValue:N0}";
+                cornerThresholdSlider.ContractedLabelText = FreehandSliderToolboxGroupStrings.CT(threshold.NewValue);
+                cornerThresholdSlider.ExpandedLabelText = FreehandSliderToolboxGroupStrings.CornerThreshold(threshold.NewValue);
 
                 CornerThreshold.Value = displayToInternalCornerThreshold(threshold.NewValue);
             }, true);
 
             displayCircleThreshold.BindValueChanged(threshold =>
             {
-                circleThresholdSlider.ContractedLabelText = $"P. C. T.: {threshold.NewValue:N0}";
-                circleThresholdSlider.ExpandedLabelText = $"Perfect Curve Threshold: {threshold.NewValue:N0}";
+                circleThresholdSlider.ContractedLabelText = FreehandSliderToolboxGroupStrings.PCT(threshold.NewValue);
+                circleThresholdSlider.ExpandedLabelText = FreehandSliderToolboxGroupStrings.PerfectCurveThreshold(threshold.NewValue);
 
                 CircleThreshold.Value = displayToInternalCircleThreshold(threshold.NewValue);
             }, true);

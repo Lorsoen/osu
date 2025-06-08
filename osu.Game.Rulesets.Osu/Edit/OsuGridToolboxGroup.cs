@@ -1,4 +1,5 @@
-﻿// Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
+﻿
+// Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
 
 using System;
@@ -14,6 +15,7 @@ using osu.Framework.Input.Events;
 using osu.Game.Graphics.Containers;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Input.Bindings;
+using osu.Game.Localisation;
 using osu.Game.Rulesets.Edit;
 using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Screens.Edit;
@@ -155,13 +157,13 @@ namespace osu.Game.Rulesets.Osu.Edit
                             RelativeSizeAxes = Axes.X,
                             Items = new[]
                             {
-                                new RadioButton("Square",
+                                new RadioButton(OsuGridToolboxGroupStrings.Square,
                                     () => GridType.Value = PositionSnapGridType.Square,
                                     () => new SpriteIcon { Icon = FontAwesome.Regular.Square }),
-                                new RadioButton("Triangle",
+                                new RadioButton(OsuGridToolboxGroupStrings.Triangle,
                                     () => GridType.Value = PositionSnapGridType.Triangle,
                                     () => new OutlineTriangle(true, 20)),
-                                new RadioButton("Circle",
+                                new RadioButton(OsuGridToolboxGroupStrings.Circle,
                                     () => GridType.Value = PositionSnapGridType.Circle,
                                     () => new SpriteIcon { Icon = FontAwesome.Regular.Circle }),
                             }
@@ -181,15 +183,15 @@ namespace osu.Game.Rulesets.Osu.Edit
 
             StartPositionX.BindValueChanged(x =>
             {
-                startPositionXSlider.ContractedLabelText = $"X: {x.NewValue:#,0.##}";
-                startPositionXSlider.ExpandedLabelText = $"X Offset: {x.NewValue:#,0.##}";
+                startPositionXSlider.ContractedLabelText = OsuGridToolboxGroupStrings.X(x.NewValue);
+                startPositionXSlider.ExpandedLabelText = OsuGridToolboxGroupStrings.XOffset(x.NewValue);
                 StartPosition.Value = new Vector2(x.NewValue, StartPosition.Value.Y);
             }, true);
 
             StartPositionY.BindValueChanged(y =>
             {
-                startPositionYSlider.ContractedLabelText = $"Y: {y.NewValue:#,0.##}";
-                startPositionYSlider.ExpandedLabelText = $"Y Offset: {y.NewValue:#,0.##}";
+                startPositionYSlider.ContractedLabelText = OsuGridToolboxGroupStrings.Y(y.NewValue);
+                startPositionYSlider.ExpandedLabelText = OsuGridToolboxGroupStrings.YOffset(y.NewValue);
                 StartPosition.Value = new Vector2(StartPosition.Value.X, y.NewValue);
             }, true);
 
@@ -201,16 +203,16 @@ namespace osu.Game.Rulesets.Osu.Edit
 
             Spacing.BindValueChanged(spacing =>
             {
-                spacingSlider.ContractedLabelText = $"S: {spacing.NewValue:#,0.##}";
-                spacingSlider.ExpandedLabelText = $"Spacing: {spacing.NewValue:#,0.##}";
+                spacingSlider.ContractedLabelText = OsuGridToolboxGroupStrings.S(spacing.NewValue);
+                spacingSlider.ExpandedLabelText = OsuGridToolboxGroupStrings.Spacing(spacing.NewValue);
                 SpacingVector.Value = new Vector2(spacing.NewValue);
                 editorBeatmap.GridSize = (int)spacing.NewValue;
             }, true);
 
             GridLinesRotation.BindValueChanged(rotation =>
             {
-                gridLinesRotationSlider.ContractedLabelText = $"R: {rotation.NewValue:#,0.##}";
-                gridLinesRotationSlider.ExpandedLabelText = $"Rotation: {rotation.NewValue:#,0.##}";
+                gridLinesRotationSlider.ContractedLabelText = OsuGridToolboxGroupStrings.R(rotation.NewValue);
+                gridLinesRotationSlider.ExpandedLabelText = OsuGridToolboxGroupStrings.Rotation(rotation.NewValue);
             }, true);
 
             GridType.BindValueChanged(v =>

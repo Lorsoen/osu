@@ -4,6 +4,7 @@
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Localisation;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Containers;
 using osu.Game.Overlays;
@@ -33,14 +34,14 @@ namespace osu.Game.Screens.Edit.Compose.Components
             };
         }
 
-        protected void AddHeader(string header) => InspectorText.AddParagraph($"{header}: ", s =>
+        protected void AddHeader(LocalisableString header) => InspectorText.AddParagraph($"{header}: ", s =>
         {
             s.Padding = new MarginPadding { Top = 2 };
             s.Font = s.Font.With(size: 12);
             s.Colour = colourProvider.Content2;
         });
 
-        protected void AddValue(string value) => InspectorText.AddParagraph(value, s =>
+        protected void AddValue(LocalisableString value) => InspectorText.AddParagraph(value, s =>
         {
             s.Font = s.Font.With(weight: FontWeight.SemiBold);
             s.Colour = colourProvider.Content1;

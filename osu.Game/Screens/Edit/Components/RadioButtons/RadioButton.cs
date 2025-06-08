@@ -19,7 +19,7 @@ namespace osu.Game.Screens.Edit.Components.RadioButtons
         /// <summary>
         /// The item related to this button.
         /// </summary>
-        public string Label;
+        public LocalisableString Label;
 
         /// <summary>
         /// A function which creates a drawable icon to represent this item. If null, a sane default should be used.
@@ -28,7 +28,7 @@ namespace osu.Game.Screens.Edit.Components.RadioButtons
 
         private readonly Action? action;
 
-        public RadioButton(string label, Action? action, Func<Drawable?>? createIcon = null)
+        public RadioButton(LocalisableString label, Action? action, Func<Drawable?>? createIcon = null)
         {
             Label = label;
             CreateIcon = createIcon;

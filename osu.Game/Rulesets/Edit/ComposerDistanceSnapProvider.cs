@@ -26,6 +26,7 @@ using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Edit;
 using osu.Game.Screens.Edit.Components.TernaryButtons;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Edit
 {
@@ -103,8 +104,8 @@ namespace osu.Game.Rulesets.Edit
             DistanceSpacingMultiplier.Value = EditorBeatmap.DistanceSpacing;
             DistanceSpacingMultiplier.BindValueChanged(multiplier =>
             {
-                distanceSpacingSlider.ContractedLabelText = $"D. S. ({multiplier.NewValue:0.##x})";
-                distanceSpacingSlider.ExpandedLabelText = $"Distance Spacing ({multiplier.NewValue:0.##x})";
+                distanceSpacingSlider.ContractedLabelText = ComposerDistanceSnapProviderStrings.DS(multiplier.NewValue);
+                distanceSpacingSlider.ExpandedLabelText = ComposerDistanceSnapProviderStrings.DistanceSpacing(multiplier.NewValue);
 
                 if (multiplier.NewValue != multiplier.OldValue)
                     onScreenDisplay?.Display(new DistanceSpacingToast(multiplier.NewValue.ToLocalisableString(@"0.##x"), multiplier));
@@ -180,14 +181,14 @@ namespace osu.Game.Rulesets.Edit
                 currentDistanceSpacingButton.Enabled.Value = currentDistanceSpacingButton.Expanded.Value
                                                              && !DistanceSpacingMultiplier.Disabled
                                                              && !Precision.AlmostEquals(currentSnap, DistanceSpacingMultiplier.Value, DistanceSpacingMultiplier.Precision / 2);
-                currentDistanceSpacingButton.ContractedLabelText = $"current {currentSnap:N2}x";
-                currentDistanceSpacingButton.ExpandedLabelText = $"Use current ({currentSnap:N2}x)";
+                currentDistanceSpacingButton.ContractedLabelText = ComposerDistanceSnapProviderStrings.CurrentX(currentSnap);
+                currentDistanceSpacingButton.ExpandedLabelText = ComposerDistanceSnapProviderStrings.UseCurrentX(currentSnap);
             }
             else
             {
                 currentDistanceSpacingButton.Enabled.Value = false;
                 currentDistanceSpacingButton.ContractedLabelText = string.Empty;
-                currentDistanceSpacingButton.ExpandedLabelText = "Use current (unavailable)";
+                currentDistanceSpacingButton.ExpandedLabelText = ComposerDistanceSnapProviderStrings.UseCurrentUnavailable;
             }
         }
 
@@ -196,7 +197,7 @@ namespace osu.Game.Rulesets.Edit
             new DrawableTernaryButton
             {
                 Current = DistanceSnapToggle,
-                Description = "Distance Snap",
+                Description = ComposerDistanceSnapProviderStrings.DistanceSnap,
                 CreateIcon = () => new SpriteIcon { Icon = OsuIcon.EditorDistanceSnap },
             }
         };

@@ -7,6 +7,7 @@ using osu.Framework.Extensions.TypeExtensions;
 using osu.Framework.Threading;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Localisation;
 
 namespace osu.Game.Screens.Edit.Compose.Components
 {
@@ -53,34 +54,34 @@ namespace osu.Game.Screens.Edit.Compose.Components
             switch (objects.Length)
             {
                 case 0:
-                    AddValue("No selection");
+                    AddValue(HitObjectInspectorStrings.NoSelection);
                     break;
 
                 case 1:
                     var selected = objects.Single();
 
-                    AddHeader("Type");
+                    AddHeader(HitObjectInspectorStrings.Type);
                     AddValue($"{selected.GetType().ReadableName()}");
 
-                    AddHeader("Time");
+                    AddHeader(HitObjectInspectorStrings.Time);
                     AddValue($"{selected.StartTime:#,0.##}ms");
 
                     switch (selected)
                     {
                         case IHasPosition pos:
-                            AddHeader("Position");
+                            AddHeader(HitObjectInspectorStrings.Position);
                             AddValue($"x:{pos.X:#,0.##}");
                             AddValue($"y:{pos.Y:#,0.##}");
                             break;
 
                         case IHasXPosition x:
-                            AddHeader("Position");
+                            AddHeader(HitObjectInspectorStrings.Position);
 
                             AddValue($"x:{x.X:#,0.##} ");
                             break;
 
                         case IHasYPosition y:
-                            AddHeader("Position");
+                            AddHeader(HitObjectInspectorStrings.Position);
 
                             AddValue($"y:{y.Y:#,0.##}");
                             break;
@@ -88,40 +89,40 @@ namespace osu.Game.Screens.Edit.Compose.Components
 
                     if (selected is IHasDistance distance)
                     {
-                        AddHeader("Distance");
+                        AddHeader(HitObjectInspectorStrings.Distance);
                         AddValue($"{distance.Distance:#,0.##}px");
                     }
 
                     if (selected is IHasSliderVelocity sliderVelocity)
                     {
-                        AddHeader("Slider Velocity");
+                        AddHeader(HitObjectInspectorStrings.SliderVelocity);
                         AddValue($"{sliderVelocity.SliderVelocityMultiplier:#,0.00}x ({sliderVelocity.SliderVelocityMultiplier * EditorBeatmap.Difficulty.SliderMultiplier:#,0.00}x)");
                     }
 
                     if (selected is IHasRepeats repeats)
                     {
-                        AddHeader("Repeats");
+                        AddHeader(HitObjectInspectorStrings.Repeats);
                         AddValue($"{repeats.RepeatCount:#,0.##}");
                     }
 
                     if (selected is IHasDuration duration)
                     {
-                        AddHeader("End Time");
+                        AddHeader(HitObjectInspectorStrings.EndTime);
                         AddValue($"{duration.EndTime:#,0.##}ms");
-                        AddHeader("Duration");
+                        AddHeader(HitObjectInspectorStrings.Duration);
                         AddValue($"{duration.Duration:#,0.##}ms");
                     }
 
                     break;
 
                 default:
-                    AddHeader("Selected Objects");
+                    AddHeader(HitObjectInspectorStrings.SelectedObjects);
                     AddValue($"{objects.Length:#,0.##}");
 
-                    AddHeader("Start Time");
+                    AddHeader(HitObjectInspectorStrings.StartTime);
                     AddValue($"{objects.Min(o => o.StartTime):#,0.##}ms");
 
-                    AddHeader("End Time");
+                    AddHeader(HitObjectInspectorStrings.EndTime);
                     AddValue($"{objects.Max(o => o.GetEndTime()):#,0.##}ms");
                     break;
             }

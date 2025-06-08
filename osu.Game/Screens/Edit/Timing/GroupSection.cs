@@ -11,6 +11,7 @@ using osu.Game.Configuration;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Graphics.UserInterfaceV2;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Screens.Edit.Timing
 {
@@ -55,12 +56,12 @@ namespace osu.Game.Screens.Edit.Timing
                     {
                         textBox = new LabelledTextBox
                         {
-                            Label = "Time",
+                            Label = GroupSectionStrings.Time,
                             SelectAllOnFocus = true,
                         },
                         button = new RoundedButton
                         {
-                            Text = "Use current time",
+                            Text = GroupSectionStrings.UseCurrentTime,
                             RelativeSizeAxes = Axes.X,
                             Action = () => changeSelectedGroupTime(clock.CurrentTime)
                         }
