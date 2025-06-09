@@ -5,6 +5,7 @@ using System.Linq;
 using osu.Game.Rulesets.Catch.Objects;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Screens.Edit.Compose.Components;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Catch.Edit
 {
@@ -25,14 +26,14 @@ namespace osu.Game.Rulesets.Catch.Edit
                 if (precedingObject != null && precedingObject is not BananaShower)
                 {
                     double previousSnap = snapProvider.ReadCurrentDistanceSnap(precedingObject, firstSelectedHitObject);
-                    AddHeader("To previous");
+                    AddHeader(CommonStrings.ToPrevious);
                     AddValue($"{previousSnap:#,0.##}x");
                 }
 
                 if (nextObject != null && nextObject is not BananaShower)
                 {
                     double nextSnap = snapProvider.ReadCurrentDistanceSnap(lastSelectedHitObject, nextObject);
-                    AddHeader("To next");
+                    AddHeader(CommonStrings.ToNext);
                     AddValue($"{nextSnap:#,0.##}x");
                 }
             }

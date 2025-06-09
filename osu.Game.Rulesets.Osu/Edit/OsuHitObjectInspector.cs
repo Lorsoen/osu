@@ -6,6 +6,7 @@ using System.Linq;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Screens.Edit.Compose.Components;
+using osu.Game.Localisation;
 
 namespace osu.Game.Rulesets.Osu.Edit
 {
@@ -27,13 +28,13 @@ namespace osu.Game.Rulesets.Osu.Edit
 
                 if (precedingObject != null && precedingObject is not Spinner)
                 {
-                    AddHeader("To previous");
+                    AddHeader(CommonStrings.ToPrevious);
                     AddValue($"{(firstInSelection.StackedPosition - precedingObject.StackedEndPosition).Length:#,0.##}px");
                 }
 
                 if (nextObject != null && nextObject is not Spinner)
                 {
-                    AddHeader("To next");
+                    AddHeader(CommonStrings.ToNext);
                     AddValue($"{(nextObject.StackedPosition - lastInSelection.StackedEndPosition).Length:#,0.##}px");
                 }
             }

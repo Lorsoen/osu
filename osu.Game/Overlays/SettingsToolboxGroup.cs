@@ -22,7 +22,7 @@ namespace osu.Game.Overlays
 {
     public partial class SettingsToolboxGroup : Container, IExpandable
     {
-        private readonly LocalisableString title;
+        private readonly string title;
         public const int CONTAINER_WIDTH = 270;
 
         private const float transition_duration = 250;

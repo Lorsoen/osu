@@ -184,6 +184,41 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString CopyLink => new TranslatableString(getKey(@"copy_link"), @"Copy link");
 
+        /// <summary>
+        /// "To previous"
+        /// </summary>
+        public static LocalisableString ToPrevious => new TranslatableString(getKey(@"to_previous"), @"To previous");
+
+        /// <summary>
+        /// "To next"
+        /// </summary>
+        public static LocalisableString ToNext => new TranslatableString(getKey(@"to_next"), @"To next");
+
+        /// <summary>
+        /// "New combo"
+        /// </summary>
+        public static LocalisableString NewCombo => new TranslatableString(getKey(@"new_combo"), @"New combo");
+
+        /// <summary>
+        /// "Sample"
+        /// </summary>
+        public static LocalisableString Sample => new TranslatableString(getKey(@"sample"), @"Sample");
+
+        /// <summary>
+        /// "Bank"
+        /// </summary>
+        public static LocalisableString Bank => new TranslatableString(getKey(@"bank"), @"Bank");
+
+        /// <summary>
+        /// "Addition bank"
+        /// </summary>
+        public static LocalisableString AdditionBank => new TranslatableString(getKey(@"addition_bank"), @"Addition bank");
+
+        /// <summary>
+        /// "New Combo"
+        /// </summary>
+        public static LocalisableString NewCombo1 => new TranslatableString(getKey(@"new_combo1"), @"New Combo");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }
