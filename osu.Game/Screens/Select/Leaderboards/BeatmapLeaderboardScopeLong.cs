@@ -7,7 +7,7 @@ using osu.Game.Resources.Localisation.Web;
 
 namespace osu.Game.Screens.Select.Leaderboards
 {
-    public enum BeatmapLeaderboardScope
+    public enum BeatmapLeaderboardScopeLong
     {
         [Description("Local Ranking")]
         Local,

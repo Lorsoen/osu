@@ -66,7 +66,7 @@ namespace osu.Game.Screens.Select
 
             switch (tab)
             {
-                case BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope> leaderboard:
+                case BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong> leaderboard:
                     Leaderboard.Scope = leaderboard.Scope;
                     Leaderboard.Show();
                     break;
@@ -79,11 +79,11 @@ namespace osu.Game.Screens.Select
 
         protected override BeatmapDetailAreaTabItem[] CreateTabItems() => base.CreateTabItems().Concat(new BeatmapDetailAreaTabItem[]
         {
-            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Local),
-            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Global),
-            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Country),
-            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Friend),
-            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Team),
+            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Local),
+            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Global),
+            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Country),
+            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Friend),
+            new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Team),
         }).ToArray();
 
         private BeatmapDetailAreaTabItem getTabItemFromTabType(BeatmapDetailTab type)
@@ -94,19 +94,19 @@ namespace osu.Game.Screens.Select
                     return new BeatmapDetailAreaDetailTabItem();
 
                 case BeatmapDetailTab.Local:
-                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Local);
+                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Local);
 
                 case BeatmapDetailTab.Global:
-                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Global);
+                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Global);
 
                 case BeatmapDetailTab.Country:
-                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Country);
+                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Country);
 
                 case BeatmapDetailTab.Friends:
-                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Friend);
+                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Friend);
 
                 case BeatmapDetailTab.Team:
-                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Team);
+                    return new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Team);
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type));
@@ -120,22 +120,22 @@ namespace osu.Game.Screens.Select
                 case BeatmapDetailAreaDetailTabItem:
                     return BeatmapDetailTab.Details;
 
-                case BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope> leaderboardTab:
+                case BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong> leaderboardTab:
                     switch (leaderboardTab.Scope)
                     {
-                        case BeatmapLeaderboardScope.Local:
+                        case BeatmapLeaderboardScopeLong.Local:
                             return BeatmapDetailTab.Local;
 
-                        case BeatmapLeaderboardScope.Country:
+                        case BeatmapLeaderboardScopeLong.Country:
                             return BeatmapDetailTab.Country;
 
-                        case BeatmapLeaderboardScope.Global:
+                        case BeatmapLeaderboardScopeLong.Global:
                             return BeatmapDetailTab.Global;
 
-                        case BeatmapLeaderboardScope.Friend:
+                        case BeatmapLeaderboardScopeLong.Friend:
                             return BeatmapDetailTab.Friends;
 
-                        case BeatmapLeaderboardScope.Team:
+                        case BeatmapLeaderboardScopeLong.Team:
                             return BeatmapDetailTab.Team;
 
                         default:

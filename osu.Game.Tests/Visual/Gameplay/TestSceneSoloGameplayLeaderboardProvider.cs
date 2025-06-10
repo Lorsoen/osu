@@ -27,7 +27,7 @@ namespace osu.Game.Tests.Visual.Gameplay
             LoadComponent(leaderboardManager);
             var gameplayState = TestGameplayState.Create(new OsuRuleset());
 
-            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScope.Local, null)));
+            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScopeLong.Local, null)));
             AddStep("set scores", () =>
             {
                 // this is dodgy but anything less dodgy is a lot of work
@@ -74,7 +74,7 @@ namespace osu.Game.Tests.Visual.Gameplay
             LoadComponent(leaderboardManager);
             var gameplayState = TestGameplayState.Create(new OsuRuleset());
 
-            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScope.Global, null)));
+            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScopeLong.Global, null)));
             AddStep("set scores", () =>
             {
                 // this is dodgy but anything less dodgy is a lot of work
@@ -121,7 +121,7 @@ namespace osu.Game.Tests.Visual.Gameplay
             LoadComponent(leaderboardManager);
             var gameplayState = TestGameplayState.Create(new OsuRuleset());
 
-            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScope.Global, null)));
+            AddStep("fetch local", () => leaderboardManager.FetchWithCriteria(new LeaderboardCriteria(Beatmap.Value.BeatmapInfo, Ruleset.Value, BeatmapLeaderboardScopeLong.Global, null)));
             AddStep("set scores", () =>
             {
                 // this is dodgy but anything less dodgy is a lot of work

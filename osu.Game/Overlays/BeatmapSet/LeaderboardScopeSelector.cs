@@ -11,18 +11,18 @@ using osu.Framework.Graphics;
 
 namespace osu.Game.Overlays.BeatmapSet
 {
-    public partial class LeaderboardScopeSelector : GradientLineTabControl<BeatmapLeaderboardScope>
+    public partial class LeaderboardScopeSelector : GradientLineTabControl<BeatmapLeaderboardScopeLong>
     {
         protected override bool AddEnumEntriesAutomatically => false;
 
-        protected override TabItem<BeatmapLeaderboardScope> CreateTabItem(BeatmapLeaderboardScope value) => new ScopeSelectorTabItem(value);
+        protected override TabItem<BeatmapLeaderboardScopeLong> CreateTabItem(BeatmapLeaderboardScopeLong value) => new ScopeSelectorTabItem(value);
 
         public LeaderboardScopeSelector()
         {
-            AddItem(BeatmapLeaderboardScope.Global);
-            AddItem(BeatmapLeaderboardScope.Country);
-            AddItem(BeatmapLeaderboardScope.Friend);
-            AddItem(BeatmapLeaderboardScope.Team);
+            AddItem(BeatmapLeaderboardScopeLong.Global);
+            AddItem(BeatmapLeaderboardScopeLong.Country);
+            AddItem(BeatmapLeaderboardScopeLong.Friend);
+            AddItem(BeatmapLeaderboardScopeLong.Team);
         }
 
         [BackgroundDependencyLoader]
@@ -34,7 +34,7 @@ namespace osu.Game.Overlays.BeatmapSet
 
         private partial class ScopeSelectorTabItem : PageTabItem
         {
-            public ScopeSelectorTabItem(BeatmapLeaderboardScope value)
+            public ScopeSelectorTabItem(BeatmapLeaderboardScopeLong value)
                 : base(value)
             {
             }

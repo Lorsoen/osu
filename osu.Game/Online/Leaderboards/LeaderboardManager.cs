@@ -63,7 +63,7 @@ namespace osu.Game.Online.Leaderboards
 
             switch (newCriteria.Scope)
             {
-                case BeatmapLeaderboardScope.Local:
+                case BeatmapLeaderboardScopeLong.Local:
                 {
                     localScoreSubscription = realm.RegisterForNotifications(r =>
                         r.All<ScoreInfo>().Filter($"{nameof(ScoreInfo.BeatmapInfo)}.{nameof(BeatmapInfo.ID)} == $0"
@@ -100,7 +100,7 @@ namespace osu.Game.Online.Leaderboards
                         return;
                     }
 
-                    if (newCriteria.Scope == BeatmapLeaderboardScope.Team && api.LocalUser.Value.Team == null)
+                    if (newCriteria.Scope == BeatmapLeaderboardScopeLong.Team && api.LocalUser.Value.Team == null)
                     {
                         scores.Value = LeaderboardScores.Failure(LeaderboardFailState.NoTeam);
                         return;
@@ -190,7 +190,7 @@ namespace osu.Game.Online.Leaderboards
     public record LeaderboardCriteria(
         BeatmapInfo? Beatmap,
         RulesetInfo? Ruleset,
-        BeatmapLeaderboardScope Scope,
+        BeatmapLeaderboardScopeLong Scope,
         Mod[]? ExactMods
     );
 

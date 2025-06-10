@@ -48,7 +48,7 @@ namespace osu.Game.Screens.Ranking
             var criteria = new LeaderboardCriteria(
                 Score.BeatmapInfo!,
                 Score.Ruleset,
-                leaderboardManager.CurrentCriteria?.Scope ?? BeatmapLeaderboardScope.Global,
+                leaderboardManager.CurrentCriteria?.Scope ?? BeatmapLeaderboardScopeLong.Global,
                 leaderboardManager.CurrentCriteria?.ExactMods
             );
             var requestTaskSource = new TaskCompletionSource<LeaderboardScores>();
@@ -81,7 +81,7 @@ namespace osu.Game.Screens.Ranking
                     Score.Position = clonedScore.Position;
                     sortedScores.Add(Score);
                 }
-                else if (criteria.Scope == BeatmapLeaderboardScope.Local || clonedScore.UserID != api.LocalUser.Value.OnlineID || clonedScore.TotalScore > Score.TotalScore)
+                else if (criteria.Scope == BeatmapLeaderboardScopeLong.Local || clonedScore.UserID != api.LocalUser.Value.OnlineID || clonedScore.TotalScore > Score.TotalScore)
                     sortedScores.Add(clonedScore);
             }
 
@@ -93,7 +93,7 @@ namespace osu.Game.Screens.Ranking
             sortedScores = sortedScores.OrderByTotalScore().ToList();
 
             int delta = 0;
-            bool isPartialLeaderboard = leaderboardManager.CurrentCriteria?.Scope != BeatmapLeaderboardScope.Local && result.TopScores.Count >= 50;
+            bool isPartialLeaderboard = leaderboardManager.CurrentCriteria?.Scope != BeatmapLeaderboardScopeLong.Local && result.TopScores.Count >= 50;
 
             for (int i = 0; i < sortedScores.Count; i++)
             {

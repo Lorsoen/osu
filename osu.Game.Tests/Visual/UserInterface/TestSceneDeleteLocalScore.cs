@@ -59,7 +59,7 @@ namespace osu.Game.Tests.Visual.UserInterface
                         Origin = Anchor.Centre,
                         Anchor = Anchor.Centre,
                         Size = new Vector2(550f, 450f),
-                        Scope = BeatmapLeaderboardScope.Local,
+                        Scope = BeatmapLeaderboardScopeLong.Local,
                         BeatmapInfo = TestResources.CreateTestBeatmapSetInfo().Beatmaps.First()
                     }
                 },

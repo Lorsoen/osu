@@ -116,7 +116,7 @@ namespace osu.Game.Tests.Visual.SongSelectV2
         [Test]
         public void TestGlobalScoresDisplay()
         {
-            setScope(BeatmapLeaderboardScope.Global);
+            setScope(BeatmapLeaderboardScopeLong.Global);
 
             AddStep(@"New Scores", () => leaderboard.SetScores(TestSceneBeatmapLeaderboard.GenerateSampleScores(new BeatmapInfo())));
             AddStep(@"New Scores with teams", () => leaderboard.SetScores(TestSceneBeatmapLeaderboard.GenerateSampleScores(new BeatmapInfo()).Select(s =>
@@ -187,7 +187,7 @@ namespace osu.Game.Tests.Visual.SongSelectV2
         {
             BeatmapInfo beatmapInfo = null!;
 
-            setScope(BeatmapLeaderboardScope.Local);
+            setScope(BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Set beatmap", () =>
             {
@@ -216,7 +216,7 @@ namespace osu.Game.Tests.Visual.SongSelectV2
             BeatmapInfo beatmapInfo = null!;
 
             AddStep("Log out", () => API.Logout());
-            setScope(BeatmapLeaderboardScope.Local);
+            setScope(BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Import beatmap", () =>
             {
@@ -237,7 +237,7 @@ namespace osu.Game.Tests.Visual.SongSelectV2
             BeatmapInfo beatmapInfo = null!;
             string originalHash = string.Empty;
 
-            setScope(BeatmapLeaderboardScope.Local);
+            setScope(BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Import beatmap", () =>
             {
@@ -338,9 +338,9 @@ namespace osu.Game.Tests.Visual.SongSelectV2
             }, 1234567);
         }
 
-        private void setScope(BeatmapLeaderboardScope scope)
+        private void setScope(BeatmapLeaderboardScopeLong scope)
         {
-            AddStep(@"Set scope", () => ((Bindable<BeatmapLeaderboardScope>)leaderboard.Scope).Value = scope);
+            AddStep(@"Set scope", () => ((Bindable<BeatmapLeaderboardScopeLong>)leaderboard.Scope).Value = scope);
         }
 
         private void importMoreScores(Func<BeatmapInfo> beatmapInfo)

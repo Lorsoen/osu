@@ -66,7 +66,7 @@ namespace osu.Game.Tests.Visual.SongSelectV2
                 var current = LeaderboardManager.CurrentCriteria!;
                 LeaderboardManager.FetchWithCriteria(current with
                 {
-                    Scope = BeatmapLeaderboardScope.Local,
+                    Scope = BeatmapLeaderboardScopeLong.Local,
                 });
             });
 

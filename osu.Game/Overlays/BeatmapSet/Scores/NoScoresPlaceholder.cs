@@ -24,7 +24,7 @@ namespace osu.Game.Overlays.BeatmapSet.Scores
 
         public override void Hide() => this.FadeOut(200, Easing.OutQuint);
 
-        public void ShowWithScope(BeatmapLeaderboardScope scope)
+        public void ShowWithScope(BeatmapLeaderboardScopeLong scope)
         {
             Show();
 
@@ -34,15 +34,15 @@ namespace osu.Game.Overlays.BeatmapSet.Scores
                     text.Text = BeatmapsetsStrings.ShowScoreboardNoScoresGlobal;
                     break;
 
-                case BeatmapLeaderboardScope.Friend:
+                case BeatmapLeaderboardScopeLong.Friend:
                     text.Text = BeatmapsetsStrings.ShowScoreboardNoScoresFriend;
                     break;
 
-                case BeatmapLeaderboardScope.Country:
+                case BeatmapLeaderboardScopeLong.Country:
                     text.Text = BeatmapsetsStrings.ShowScoreboardNoScoresCountry;
                     break;
 
-                case BeatmapLeaderboardScope.Team:
+                case BeatmapLeaderboardScopeLong.Team:
                     text.Text = BeatmapsetsStrings.ShowScoreboardNoScoresTeam;
                     break;
             }

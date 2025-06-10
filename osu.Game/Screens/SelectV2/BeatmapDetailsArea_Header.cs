@@ -24,12 +24,12 @@ namespace osu.Game.Screens.SelectV2
             private WedgeSelector<Selection> tabControl = null!;
             private FillFlowContainer leaderboardControls = null!;
 
-            private ShearedDropdown<BeatmapLeaderboardScope> scopeDropdown = null!;
+            private ShearedDropdown<BeatmapLeaderboardScopeLong> scopeDropdown = null!;
             private ShearedToggleButton selectedModsToggle = null!;
 
             public IBindable<Selection> Type => tabControl.Current;
 
-            public IBindable<BeatmapLeaderboardScope> Scope => scopeDropdown.Current;
+            public IBindable<BeatmapLeaderboardScopeLong> Scope => scopeDropdown.Current;
 
             private readonly Bindable<BeatmapDetailTab> configDetailTab = new Bindable<BeatmapDetailTab>();
 
@@ -95,7 +95,7 @@ namespace osu.Game.Screens.SelectV2
                                         Child = scopeDropdown = new ScopeDropdown
                                         {
                                             Width = 160f,
-                                            Current = { Value = BeatmapLeaderboardScope.Global },
+                                            Current = { Value = BeatmapLeaderboardScopeLong.Global },
                                         },
                                     },
                                 },
@@ -142,47 +142,47 @@ namespace osu.Game.Screens.SelectV2
                 }
             }
 
-            private static BeatmapLeaderboardScope? tryMapDetailTabToLeaderboardScope(BeatmapDetailTab tab)
+            private static BeatmapLeaderboardScopeLong? tryMapDetailTabToLeaderboardScope(BeatmapDetailTab tab)
             {
                 switch (tab)
                 {
                     case BeatmapDetailTab.Local:
-                        return BeatmapLeaderboardScope.Local;
+                        return BeatmapLeaderboardScopeLong.Local;
 
                     case BeatmapDetailTab.Country:
-                        return BeatmapLeaderboardScope.Country;
+                        return BeatmapLeaderboardScopeLong.Country;
 
                     case BeatmapDetailTab.Global:
-                        return BeatmapLeaderboardScope.Global;
+                        return BeatmapLeaderboardScopeLong.Global;
 
                     case BeatmapDetailTab.Friends:
-                        return BeatmapLeaderboardScope.Friend;
+                        return BeatmapLeaderboardScopeLong.Friend;
 
                     case BeatmapDetailTab.Team:
-                        return BeatmapLeaderboardScope.Team;
+                        return BeatmapLeaderboardScopeLong.Team;
 
                     default:
                         return null;
                 }
             }
 
-            private static BeatmapDetailTab mapLeaderboardScopeToDetailTab(BeatmapLeaderboardScope scope)
+            private static BeatmapDetailTab mapLeaderboardScopeToDetailTab(BeatmapLeaderboardScopeLong scope)
             {
                 switch (scope)
                 {
-                    case BeatmapLeaderboardScope.Local:
+                    case BeatmapLeaderboardScopeLong.Local:
                         return BeatmapDetailTab.Local;
 
-                    case BeatmapLeaderboardScope.Country:
+                    case BeatmapLeaderboardScopeLong.Country:
                         return BeatmapDetailTab.Country;
 
-                    case BeatmapLeaderboardScope.Global:
+                    case BeatmapLeaderboardScopeLong.Global:
                         return BeatmapDetailTab.Global;
 
-                    case BeatmapLeaderboardScope.Friend:
+                    case BeatmapLeaderboardScopeLong.Friend:
                         return BeatmapDetailTab.Friends;
 
-                    case BeatmapLeaderboardScope.Team:
+                    case BeatmapLeaderboardScopeLong.Team:
                         return BeatmapDetailTab.Team;
 
                     default:
@@ -207,12 +207,12 @@ namespace osu.Game.Screens.SelectV2
             //     Date,
             // }
 
-            private partial class ScopeDropdown : ShearedDropdown<BeatmapLeaderboardScope>
+            private partial class ScopeDropdown : ShearedDropdown<BeatmapLeaderboardScopeLong>
             {
                 public ScopeDropdown()
                     : base(BeatmapDetailsAreaStrings.Scope)
                 {
-                    Items = Enum.GetValues<BeatmapLeaderboardScope>();
+                    Items = Enum.GetValues<BeatmapLeaderboardScopeLong>();
                 }
             }
         }

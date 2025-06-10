@@ -873,7 +873,7 @@ namespace osu.Game
                 {
                     var newLeaderboard = currentLeaderboard != null
                         ? currentLeaderboard with { Beatmap = databasedBeatmap, Ruleset = databasedScore.ScoreInfo.Ruleset }
-                        : new LeaderboardCriteria(databasedBeatmap, databasedScore.ScoreInfo.Ruleset, BeatmapLeaderboardScope.Global, null);
+                        : new LeaderboardCriteria(databasedBeatmap, databasedScore.ScoreInfo.Ruleset, BeatmapLeaderboardScopeLong.Global, null);
                     LeaderboardManager.FetchWithCriteria(newLeaderboard);
                 }
 

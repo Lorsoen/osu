@@ -39,7 +39,7 @@ namespace osu.Game.Screens.SelectV2
     {
         public const float SPACING_BETWEEN_SCORES = 4;
 
-        public IBindable<BeatmapLeaderboardScope> Scope { get; } = new Bindable<BeatmapLeaderboardScope>();
+        public IBindable<BeatmapLeaderboardScopeLong> Scope { get; } = new Bindable<BeatmapLeaderboardScopeLong>();
 
         public IBindable<bool> FilterBySelectedMods { get; } = new BindableBool();
 
@@ -265,7 +265,7 @@ namespace osu.Game.Screens.SelectV2
 
                 if (s.OnlineID == userScore?.OnlineID)
                     highlightType = BeatmapLeaderboardScore.HighlightType.Own;
-                else if (api.Friends.Any(r => r.TargetID == s.UserID) && Scope.Value != BeatmapLeaderboardScope.Friend)
+                else if (api.Friends.Any(r => r.TargetID == s.UserID) && Scope.Value != BeatmapLeaderboardScopeLong.Friend)
                     highlightType = BeatmapLeaderboardScore.HighlightType.Friend;
 
                 return new BeatmapLeaderboardScore(s)

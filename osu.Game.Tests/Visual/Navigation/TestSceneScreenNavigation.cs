@@ -672,7 +672,7 @@ namespace osu.Game.Tests.Visual.Navigation
             AddStep("press back button", () => Game.ChildrenOfType<BackButton>().First().Action!.Invoke());
 
             AddStep("show local scores",
-                () => Game.ChildrenOfType<BeatmapDetailAreaTabControl>().First().Current.Value = new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Local));
+                () => Game.ChildrenOfType<BeatmapDetailAreaTabControl>().First().Current.Value = new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Local));
 
             AddUntilStep("wait for score displayed", () => (scorePanel = Game.ChildrenOfType<LeaderboardScore>().FirstOrDefault(s => s.Score.Equals(score))) != null);
 
@@ -705,7 +705,7 @@ namespace osu.Game.Tests.Visual.Navigation
             AddStep("press back button", () => Game.ChildrenOfType<BackButton>().First().Action!.Invoke());
 
             AddStep("show local scores",
-                () => Game.ChildrenOfType<BeatmapDetailAreaTabControl>().First().Current.Value = new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScope>(BeatmapLeaderboardScope.Local));
+                () => Game.ChildrenOfType<BeatmapDetailAreaTabControl>().First().Current.Value = new BeatmapDetailAreaLeaderboardTabItem<BeatmapLeaderboardScopeLong>(BeatmapLeaderboardScopeLong.Local));
 
             AddUntilStep("wait for score displayed", () => (scorePanel = Game.ChildrenOfType<LeaderboardScore>().FirstOrDefault(s => s.Score.Equals(score))) != null);
 

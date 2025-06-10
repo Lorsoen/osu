@@ -17,7 +17,7 @@ namespace osu.Game.Tests.Visual.Online
 
         public TestSceneLeaderboardScopeSelector()
         {
-            Bindable<BeatmapLeaderboardScope> scope = new Bindable<BeatmapLeaderboardScope>();
+            Bindable<BeatmapLeaderboardScopeLong> scope = new Bindable<BeatmapLeaderboardScopeLong>();
 
             Add(new LeaderboardScopeSelector
             {
@@ -26,9 +26,9 @@ namespace osu.Game.Tests.Visual.Online
                 Current = { BindTarget = scope }
             });
 
-            AddStep(@"Select global", () => scope.Value = BeatmapLeaderboardScope.Global);
-            AddStep(@"Select country", () => scope.Value = BeatmapLeaderboardScope.Country);
-            AddStep(@"Select friend", () => scope.Value = BeatmapLeaderboardScope.Friend);
+            AddStep(@"Select global", () => scope.Value = BeatmapLeaderboardScopeLong.Global);
+            AddStep(@"Select country", () => scope.Value = BeatmapLeaderboardScopeLong.Country);
+            AddStep(@"Select friend", () => scope.Value = BeatmapLeaderboardScopeLong.Friend);
         }
     }
 }

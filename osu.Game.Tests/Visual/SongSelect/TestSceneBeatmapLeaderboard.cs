@@ -83,7 +83,7 @@ namespace osu.Game.Tests.Visual.SongSelect
                         Origin = Anchor.Centre,
                         Anchor = Anchor.Centre,
                         Size = new Vector2(550f, 450f),
-                        Scope = BeatmapLeaderboardScope.Global,
+                        Scope = BeatmapLeaderboardScopeLong.Global,
                     }
                 }
             });
@@ -94,7 +94,7 @@ namespace osu.Game.Tests.Visual.SongSelect
         {
             BeatmapInfo beatmapInfo = null!;
 
-            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScope.Local);
+            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Set beatmap", () =>
             {
@@ -123,7 +123,7 @@ namespace osu.Game.Tests.Visual.SongSelect
             BeatmapInfo beatmapInfo = null!;
 
             AddStep("Log out", () => API.Logout());
-            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScope.Local);
+            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Set beatmap", () =>
             {
@@ -144,7 +144,7 @@ namespace osu.Game.Tests.Visual.SongSelect
             BeatmapInfo beatmapInfo = null!;
             string originalHash = string.Empty;
 
-            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScope.Local);
+            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScopeLong.Local);
 
             AddStep(@"Import beatmap", () =>
             {
@@ -205,7 +205,7 @@ namespace osu.Game.Tests.Visual.SongSelect
         [Test]
         public void TestGlobalScoresDisplay()
         {
-            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScope.Global);
+            AddStep(@"Set scope", () => leaderboard.Scope = BeatmapLeaderboardScopeLong.Global);
             AddStep(@"New Scores", () => leaderboard.SetScores(GenerateSampleScores(new BeatmapInfo())));
             AddStep(@"New Scores with teams", () => leaderboard.SetScores(GenerateSampleScores(new BeatmapInfo()).Select(s =>
             {

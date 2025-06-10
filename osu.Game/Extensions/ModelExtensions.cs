@@ -166,15 +166,15 @@ namespace osu.Game.Extensions
         /// </remarks>
         public static string GetValidFilename(this string filename) => invalid_filename_chars.Replace(filename, "_");
 
-        public static bool RequiresSupporter(this BeatmapLeaderboardScope scope, bool filterMods)
+        public static bool RequiresSupporter(this BeatmapLeaderboardScopeLong scope, bool filterMods)
         {
             switch (scope)
             {
-                case BeatmapLeaderboardScope.Local:
+                case BeatmapLeaderboardScopeLong.Local:
                     return false;
 
-                case BeatmapLeaderboardScope.Country:
-                case BeatmapLeaderboardScope.Friend:
+                case BeatmapLeaderboardScopeLong.Country:
+                case BeatmapLeaderboardScopeLong.Friend:
                     return true;
             }
 

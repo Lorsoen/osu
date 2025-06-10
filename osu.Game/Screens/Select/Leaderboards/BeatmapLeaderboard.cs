@@ -16,7 +16,7 @@ using osu.Game.Scoring;
 
 namespace osu.Game.Screens.Select.Leaderboards
 {
-    public partial class BeatmapLeaderboard : Leaderboard<BeatmapLeaderboardScope, ScoreInfo>
+    public partial class BeatmapLeaderboard : Leaderboard<BeatmapLeaderboardScopeLong, ScoreInfo>
     {
         public Action<ScoreInfo>? ScoreSelected;
 
@@ -86,7 +86,7 @@ namespace osu.Game.Screens.Select.Leaderboards
 
         private bool initialFetchComplete;
 
-        protected override bool IsOnlineScope => Scope != BeatmapLeaderboardScope.Local;
+        protected override bool IsOnlineScope => Scope != BeatmapLeaderboardScopeLong.Local;
 
         protected override APIRequest? FetchScores(CancellationToken cancellationToken)
         {
@@ -125,12 +125,12 @@ namespace osu.Game.Screens.Select.Leaderboards
                 Schedule(() => SetErrorState((LeaderboardState)scores.FailState));
         }
 
-        protected override LeaderboardScore CreateDrawableScore(ScoreInfo model, int index) => new LeaderboardScore(model, index, IsOnlineScope, Scope != BeatmapLeaderboardScope.Friend)
+        protected override LeaderboardScore CreateDrawableScore(ScoreInfo model, int index) => new LeaderboardScore(model, index, IsOnlineScope, Scope != BeatmapLeaderboardScopeLong.Friend)
         {
             Action = () => ScoreSelected?.Invoke(model)
         };
 
-        protected override LeaderboardScore CreateDrawableTopScore(ScoreInfo model) => new LeaderboardScore(model, model.Position, false, Scope != BeatmapLeaderboardScope.Friend)
+        protected override LeaderboardScore CreateDrawableTopScore(ScoreInfo model) => new LeaderboardScore(model, model.Position, false, Scope != BeatmapLeaderboardScopeLong.Friend)
         {
             Action = () => ScoreSelected?.Invoke(model)
         };

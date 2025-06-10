@@ -21,16 +21,16 @@ namespace osu.Game.Online.API.Requests
         public const int MAX_SCORES_PER_REQUEST = 100;
 
         private readonly IBeatmapInfo beatmapInfo;
-        private readonly BeatmapLeaderboardScope scope;
+        private readonly BeatmapLeaderboardScopeLong scope;
         private readonly IRulesetInfo ruleset;
         private readonly IEnumerable<IMod> mods;
 
-        public GetScoresRequest(IBeatmapInfo beatmapInfo, IRulesetInfo ruleset, BeatmapLeaderboardScope scope = BeatmapLeaderboardScope.Global, IEnumerable<IMod>? mods = null)
+        public GetScoresRequest(IBeatmapInfo beatmapInfo, IRulesetInfo ruleset, BeatmapLeaderboardScopeLong scope = BeatmapLeaderboardScopeLong.Global, IEnumerable<IMod>? mods = null)
         {
             if (beatmapInfo.OnlineID <= 0)
                 throw new InvalidOperationException($"Cannot lookup a beatmap's scores without having a populated {nameof(IBeatmapInfo.OnlineID)}.");
 
-            if (scope == BeatmapLeaderboardScope.Local)
+            if (scope == BeatmapLeaderboardScopeLong.Local)
                 throw new InvalidOperationException("Should not attempt to request online scores for a local scoped leaderboard");
 
             this.beatmapInfo = beatmapInfo;
