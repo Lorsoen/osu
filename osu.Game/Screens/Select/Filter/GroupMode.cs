@@ -1,40 +1,41 @@
 ﻿// Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
 
-using System.ComponentModel;
+using osu.Framework.Localisation;
+using osu.Game.Localisation;
 
 namespace osu.Game.Screens.Select.Filter
 {
     public enum GroupMode
     {
-        [Description("None")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.None))]
         None,
 
-        [Description("Artist")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.Artist))]
         Artist,
 
-        [Description("Author")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.Author))]
         Author,
 
-        [Description("BPM")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.BPM))]
         BPM,
 
         // [Description("Collections")]
         // Collections,
 
-        [Description("Date Added")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.DateAdded))]
         DateAdded,
 
-        [Description("Date Ranked")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.DateRanked))]
         DateRanked,
 
-        [Description("Difficulty")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.Difficulty))]
         Difficulty,
 
         // [Description("Favourites")]
         // Favourites,
 
-        [Description("Length")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.Length))]
         Length,
 
         // [Description("My Maps")]
@@ -43,13 +44,13 @@ namespace osu.Game.Screens.Select.Filter
         // [Description("Rank Achieved")]
         // RankAchieved,
 
-        [Description("Ranked Status")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.RankedStatus))]
         RankedStatus,
 
-        [Description("Last Played")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.LastPlayed))]
         LastPlayed,
 
-        [Description("Title")]
+        [LocalisableDescription(typeof(GroupModeStrings), nameof(GroupModeStrings.Title))]
         Title,
     }
 }

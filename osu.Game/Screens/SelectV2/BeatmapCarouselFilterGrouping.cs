@@ -11,6 +11,7 @@ using osu.Game.Beatmaps;
 using osu.Game.Graphics.Carousel;
 using osu.Game.Screens.Select;
 using osu.Game.Screens.Select.Filter;
+using osu.Game.Localisation;
 
 namespace osu.Game.Screens.SelectV2
 {
@@ -169,7 +170,7 @@ namespace osu.Game.Screens.SelectV2
                             date = aggregateMax(b, static b => (b.LastPlayed ?? DateTimeOffset.MinValue));
 
                         if (date == null || date == DateTimeOffset.MinValue)
-                            return new GroupDefinition(int.MaxValue, "Never");
+                            return new GroupDefinition(int.MaxValue, BeatmapCarouselFilterGroupingStrings.Never);
 
                         return defineGroupByDate(date.Value);
                     }, items);
@@ -239,7 +240,7 @@ namespace osu.Game.Screens.SelectV2
             if (char.IsAsciiLetter(firstChar))
                 return new GroupDefinition(char.ToUpperInvariant(firstChar) - 'A', char.ToUpperInvariant(firstChar).ToString());
 
-            return new GroupDefinition(int.MaxValue, "Other");
+            return new GroupDefinition(int.MaxValue, BeatmapCarouselFilterGroupingStrings.Other);
         }
 
         private GroupDefinition defineGroupByDate(DateTimeOffset date)
@@ -248,30 +249,30 @@ namespace osu.Game.Screens.SelectV2
             var elapsed = now - date;
 
             if (elapsed.TotalDays < 1)
-                return new GroupDefinition(0, "Today");
+                return new GroupDefinition(0, BeatmapCarouselFilterGroupingStrings.Today);
 
             if (elapsed.TotalDays < 2)
-                return new GroupDefinition(1, "Yesterday");
+                return new GroupDefinition(1, BeatmapCarouselFilterGroupingStrings.Yesterday);
 
             if (elapsed.TotalDays < 7)
-                return new GroupDefinition(2, "Last week");
+                return new GroupDefinition(2, BeatmapCarouselFilterGroupingStrings.LastWeek);
 
             if (elapsed.TotalDays < 30)
-                return new GroupDefinition(3, "1 month ago");
+                return new GroupDefinition(3, BeatmapCarouselFilterGroupingStrings.MonthAgo);
 
             for (int i = 60; i <= 150; i += 30)
             {
                 if (elapsed.TotalDays < i)
-                    return new GroupDefinition(i, $"{i / 30} months ago");
+                    return new GroupDefinition(i, BeatmapCarouselFilterGroupingStrings.MonthsAgo(i / 30));
             }
 
-            return new GroupDefinition(151, "Over 5 months ago");
+            return new GroupDefinition(151, BeatmapCarouselFilterGroupingStrings.OverMonthsAgo);
         }
 
         private GroupDefinition defineGroupByRankedDate(DateTimeOffset? date)
         {
             if (date == null)
-                return new GroupDefinition(0, "Unranked");
+                return new GroupDefinition(0, BeatmapCarouselFilterGroupingStrings.Unranked);
 
             return new GroupDefinition(-date.Value.Year, $"{date.Value.Year}");
         }
@@ -315,10 +316,10 @@ namespace osu.Game.Screens.SelectV2
             for (int i = 1; i < 6; i++)
             {
                 if (bpm < i * 60)
-                    return new GroupDefinition(i, $"Under {i * 60} BPM");
+                    return new GroupDefinition(i, BeatmapCarouselFilterGroupingStrings.UnderBPM(i * 60));
             }
 
-            return new GroupDefinition(6, "Over 300 BPM");
+            return new GroupDefinition(6, BeatmapCarouselFilterGroupingStrings.OverBPM);
         }
 
         private GroupDefinition defineGroupByStars(double stars)
@@ -327,12 +328,12 @@ namespace osu.Game.Screens.SelectV2
             var starDifficulty = new StarDifficulty(starInt, 0);
 
             if (starInt == 0)
-                return new StarDifficultyGroupDefinition(0, "Below 1 Star", starDifficulty);
+                return new StarDifficultyGroupDefinition(0, BeatmapCarouselFilterGroupingStrings.BelowStar, starDifficulty);
 
             if (starInt == 1)
-                return new StarDifficultyGroupDefinition(1, "1 Star", starDifficulty);
+                return new StarDifficultyGroupDefinition(1, BeatmapCarouselFilterGroupingStrings.Star, starDifficulty);
 
-            return new StarDifficultyGroupDefinition(starInt, $"{starInt} Stars", starDifficulty);
+            return new StarDifficultyGroupDefinition(starInt, BeatmapCarouselFilterGroupingStrings.Stars(starInt), starDifficulty);
         }
 
         private GroupDefinition defineGroupByLength(double length)
@@ -342,16 +343,16 @@ namespace osu.Game.Screens.SelectV2
                 if (length <= i * 60_000)
                 {
                     if (i == 1)
-                        return new GroupDefinition(1, "1 minute or less");
+                        return new GroupDefinition(1, BeatmapCarouselFilterGroupingStrings.MinuteOrLess);
 
-                    return new GroupDefinition(i, $"{i} minutes or less");
+                    return new GroupDefinition(i, BeatmapCarouselFilterGroupingStrings.MinutesOrLess(i));
                 }
             }
 
             if (length <= 10 * 60_000)
-                return new GroupDefinition(10, "10 minutes or less");
+                return new GroupDefinition(10, BeatmapCarouselFilterGroupingStrings.MinutesOrLess1);
 
-            return new GroupDefinition(11, "Over 10 minutes");
+            return new GroupDefinition(11, BeatmapCarouselFilterGroupingStrings.OverMinutes);
         }
 
         private static T? aggregateMax<T>(BeatmapInfo b, Func<BeatmapInfo, T> func)

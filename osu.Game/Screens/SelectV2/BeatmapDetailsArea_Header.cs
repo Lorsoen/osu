@@ -214,8 +214,6 @@ namespace osu.Game.Screens.SelectV2
                 {
                     Items = Enum.GetValues<BeatmapLeaderboardScope>();
                 }
-
-                protected override LocalisableString GenerateItemText(BeatmapLeaderboardScope item) => item.ToString();
             }
         }
     }

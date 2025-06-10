@@ -27,6 +27,7 @@ using osu.Game.Rulesets;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Utils;
 using osuTK;
+using osu.Game.Localisation;
 
 namespace osu.Game.Screens.SelectV2
 {
@@ -283,7 +284,7 @@ namespace osu.Game.Screens.SelectV2
 
                     bpmStatistic.Text = bpmMin == bpmMax
                         ? $"{bpmMin}"
-                        : $"{bpmMin}-{bpmMax} (mostly {mostCommonBPM})";
+                        : BeatmapTitleWedgeStrings.Mostly(bpmMin, bpmMax, mostCommonBPM);
                 });
             }, token);
         }

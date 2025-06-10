@@ -14,6 +14,11 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString MappedBy => new TranslatableString(getKey(@"mapped_by"), @" mapped by ");
 
+        /// <summary>
+        /// "{0}-{1} (mostly {2})"
+        /// </summary>
+        public static LocalisableString Mostly(int bpmMin, int bpmMax, int mostCommonBPM) => new TranslatableString(getKey(@"mostly"), @"{0}-{1} (mostly {2})", bpmMin, bpmMax, mostCommonBPM);
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

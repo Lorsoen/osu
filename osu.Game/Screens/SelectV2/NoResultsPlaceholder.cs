@@ -87,8 +87,7 @@ namespace osu.Game.Screens.SelectV2
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
                             Font = OsuFont.Style.Title,
-                            Text = "No matching beatmaps"
-                        },
+                            Text = NoResultsPlaceholderStrings.NoMatchingBeatmaps },
                         textFlow = new LinkFlowContainer
                         {
                             Alpha = 0,
@@ -142,32 +141,32 @@ namespace osu.Game.Screens.SelectV2
             if (beatmaps.QueryBeatmapSet(s => !s.Protected && !s.DeletePending) == null)
             {
                 addBulletPoint();
-                textFlow.AddText("Consider running the \"");
+                textFlow.AddText(NoResultsPlaceholderStrings.ConsiderRunningThe);
                 textFlow.AddLink(FirstRunSetupOverlayStrings.FirstRunSetupTitle, () => firstRunSetupOverlay?.Show());
-                textFlow.AddText("\" to download or import some beatmaps!");
+                textFlow.AddText(NoResultsPlaceholderStrings.ToDownloadOrImportSome);
             }
             else
             {
-                textFlow.AddParagraph("No beatmaps match your filter criteria!");
+                textFlow.AddParagraph(NoResultsPlaceholderStrings.NoBeatmapsMatchYourFilter);
                 textFlow.AddParagraph(string.Empty);
 
                 if (!string.IsNullOrEmpty(filter?.SearchText))
                 {
                     addBulletPoint();
-                    textFlow.AddText("Try ");
-                    textFlow.AddLink("clearing", () =>
+                    textFlow.AddText(NoResultsPlaceholderStrings.TryClearing);
+                    textFlow.AddLink(NoResultsPlaceholderStrings.Clearing, () =>
                     {
                         RequestClearFilterText?.Invoke();
                     });
 
-                    textFlow.AddText(" your current search criteria.");
+                    textFlow.AddText(NoResultsPlaceholderStrings.YourCurrentSearchCriteria);
                 }
 
                 if (filter?.UserStarDifficulty.HasFilter == true)
                 {
                     addBulletPoint();
-                    textFlow.AddText("Try ");
-                    textFlow.AddLink("removing", () =>
+                    textFlow.AddText(NoResultsPlaceholderStrings.TryRemoving);
+                    textFlow.AddLink(NoResultsPlaceholderStrings.Removing, () =>
                     {
                         config.SetValue(OsuSetting.DisplayStarsMinimum, 0.0);
                         config.SetValue(OsuSetting.DisplayStarsMaximum, 10.1);
@@ -176,7 +175,7 @@ namespace osu.Game.Screens.SelectV2
                     string lowerStar = $"{filter.UserStarDifficulty.Min ?? 0:N1}";
                     string upperStar = filter.UserStarDifficulty.Max == null ? "∞" : $"{filter.UserStarDifficulty.Max:N1}";
 
-                    textFlow.AddText($" the {lowerStar} - {upperStar} star difficulty filter.");
+                    textFlow.AddText(NoResultsPlaceholderStrings.TheStarDifficultyFilter(lowerStar, upperStar));
                 }
 
                 // TODO: Add realm queries to hint at which ruleset results are available in (and allow clicking to switch).
@@ -184,18 +183,18 @@ namespace osu.Game.Screens.SelectV2
                 if (filter?.Ruleset?.OnlineID != 0 && filter?.AllowConvertedBeatmaps == false)
                 {
                     addBulletPoint();
-                    textFlow.AddText("Try ");
-                    textFlow.AddLink("enabling ", () => config.SetValue(OsuSetting.ShowConvertedBeatmaps, true));
-                    textFlow.AddText("automatic conversion!");
+                    textFlow.AddText(NoResultsPlaceholderStrings.TryEnabling);
+                    textFlow.AddLink(NoResultsPlaceholderStrings.Enabling, () => config.SetValue(OsuSetting.ShowConvertedBeatmaps, true));
+                    textFlow.AddText(NoResultsPlaceholderStrings.AutomaticConversion);
                 }
             }
 
             if (!string.IsNullOrEmpty(filter?.SearchText))
             {
                 addBulletPoint();
-                textFlow.AddText("Try ");
-                textFlow.AddLink("searching online", LinkAction.SearchBeatmapSet, filter.SearchText);
-                textFlow.AddText($" for \"{filter.SearchText}\".");
+                textFlow.AddText(NoResultsPlaceholderStrings.TrySearchOnline);
+                textFlow.AddLink(NoResultsPlaceholderStrings.SearchingOnline, LinkAction.SearchBeatmapSet, filter.SearchText);
+                textFlow.AddText(NoResultsPlaceholderStrings.For(filter.SearchText));
             }
             // TODO: add clickable link to reset criteria.
         }

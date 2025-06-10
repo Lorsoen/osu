@@ -15,6 +15,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Pooling;
+using osu.Framework.Localisation;
 using osu.Framework.Threading;
 using osu.Framework.Utils;
 using osu.Game.Beatmaps;
@@ -716,10 +717,10 @@ namespace osu.Game.Screens.SelectV2
     /// </summary>
     /// <param name="Order">The order of this group in the carousel, sorted using ascending order.</param>
     /// <param name="Title">The title of this group.</param>
-    public record GroupDefinition(int Order, string Title);
+    public record GroupDefinition(int Order, LocalisableString Title);
 
     /// <summary>
     /// Defines a grouping header for a set of carousel items grouped by star difficulty.
     /// </summary>
-    public record StarDifficultyGroupDefinition(int Order, string Title, StarDifficulty Difficulty) : GroupDefinition(Order, Title);
+    public record StarDifficultyGroupDefinition(int Order, LocalisableString Title, StarDifficulty Difficulty) : GroupDefinition(Order, Title);
 }

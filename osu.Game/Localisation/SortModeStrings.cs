@@ -34,6 +34,11 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString LastPlayed => new TranslatableString(getKey(@"last_played"), @"Last Played");
 
+        /// <summary>
+        /// "Source"
+        /// </summary>
+        public static LocalisableString Source => new TranslatableString(getKey(@"source"), @"Source");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }
