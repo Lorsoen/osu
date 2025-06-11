@@ -241,6 +241,12 @@ namespace osu.Game.Graphics.Carousel
         protected virtual bool CheckValidForGroupSelection(CarouselItem item) => true;
 
         /// <summary>
+        /// Keyboard selection usually does not automatically activate an item. There may be exceptions to this rule.
+        /// Returning <c>true</c> here will make keyboard traversal act like group traversal for the target item.
+        /// </summary>
+        protected virtual bool ShouldActivateOnKeyboardSelection(CarouselItem item) => false;
+
+        /// <summary>
         /// Called after an item becomes the <see cref="CurrentSelection"/>.
         /// Should be used to handle any group expansion, item visibility changes, etc.
         /// </summary>
@@ -500,8 +506,14 @@ namespace osu.Game.Graphics.Carousel
 
                 if (newItem.IsVisible)
                 {
-                    playTraversalSound();
-                    setKeyboardSelection(newItem.Model);
+                    if (!CheckModelEquality(currentSelection.Model, newItem.Model) && ShouldActivateOnKeyboardSelection(newItem))
+                        Activate(newItem);
+                    else
+                    {
+                        playTraversalSound();
+                        setKeyboardSelection(newItem.Model);
+                    }
+
                     return;
                 }
             } while (newIndex != originalIndex);
@@ -996,6 +1008,29 @@ namespace osu.Game.Graphics.Carousel
                 foreach (var d in Panels)
                     d.Y = (float)(((ICarouselPanel)d).DrawYPosition + scrollableExtent);
             }
+
+            #region Scrollbar padding
+
+            public float ScrollbarPaddingTop { get; set; } = 5;
+            public float ScrollbarPaddingBottom { get; set; } = 5;
+
+            protected override float ToScrollbarPosition(double scrollPosition)
+            {
+                if (Precision.AlmostEquals(0, ScrollableExtent))
+                    return 0;
+
+                return (float)(ScrollbarPaddingTop + (ScrollbarMovementExtent - (ScrollbarPaddingTop + ScrollbarPaddingBottom)) * (scrollPosition / ScrollableExtent));
+            }
+
+            protected override float FromScrollbarPosition(float scrollbarPosition)
+            {
+                if (Precision.AlmostEquals(0, ScrollbarMovementExtent))
+                    return 0;
+
+                return (float)(ScrollableExtent * ((scrollbarPosition - ScrollbarPaddingTop) / (ScrollbarMovementExtent - (ScrollbarPaddingTop + ScrollbarPaddingBottom))));
+            }
+
+            #endregion
 
             #region Absolute scrolling
 
